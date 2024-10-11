@@ -1,0 +1,258 @@
+/* NAVBAR CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #daa520;
+  --sb-size: 15px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+body {
+    height: 100%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    overflow-x: hidden;
+}
+
+.navbar-brand img {
+    width: 600px;
+    height: 190px;
+}
+
+.navbar {
+    font-size: x-large;
+}
+
+.navbar a {
+    transition: all 0.7s;
+}
+
+.navbar a:hover {
+    color: white !important;
+}
+
+.dropdown-item {
+    font-size: larger;
+    transition: all 0.7s;
+}
+
+.dropdown-item:hover {
+    background-color: goldenrod;
+}
+
+.cart-icon i {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+}
+/* NAVBAR CSS */
+
+/* DESIGN CSS */
+.banner img {
+  width: 100%;
+  height: auto;
+  max-height: 550px ;
+}
+
+.animated-h1 {
+  color: goldenrod;
+  font-weight: normal;
+  position: relative;
+  font-size: 35px;
+  margin: 40px 0px;
+  font-family: Times New Roman;
+  text-transform: uppercase;
+
+}
+
+.animated-h1::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: rgb(51, 51, 48);
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+      width: 100px;
+  }
+
+  50% {
+      width: 200px;
+  }
+
+  100% {
+      width: 100px;
+  }
+}
+
+.card {
+  width: 22rem;
+  height: 430px;
+  margin: 15px;
+  border-radius: 15px;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 21.9rem;
+  height: 230px;
+}
+
+.view-btn {
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.btn.view-btn:hover {
+  background: rgb(247, 180, 11);
+}
+
+.card-title {
+  font-weight: 700;
+  color: goldenrod;
+}
+
+/* Model POPUP Start */
+
+.modal-content {
+  border-radius: 15px;
+  background: #f0f2f5;
+}
+
+.modal-header {
+  background: #f8f9fa;
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: 700;
+}
+
+.modal-body img {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+  color: rgb(255, 255, 255);
+  background-color: #daa520;
+}
+
+/* Model POPUP END */
+
+.wishlist-btn {
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+}
+
+.wishlist-btn i {
+  color: goldenrod;
+  transition: transform 0.2s ease;
+}
+
+.wishlist-btn i:hover {
+  transform: scale(1.2);
+}
+
+.wishlist-btn:focus {
+  outline: none;
+}
+/* DESIGN CSS */
+
+/* MEDIA QUERIES */
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+    .navbar {
+      font-size: large;
+    }
+  
+  }
+  /* Small Devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+    .navbar {
+      font-size: large;
+    }
+  }
+  
+  /* Medium Devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand img {
+      width: 350px;
+      height: 125px;
+    }
+    .navbar {
+      font-size:large;
+    }
+
+  }
+  
+  /* Large Devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+  }
+  
+  /* Extra Large Devices (large desktops, 1200px) */
+  @media (min-width: 1200px) {
+    .navbar-brand img {
+      width: 600px;
+      height: 190px;
+    }
+  }

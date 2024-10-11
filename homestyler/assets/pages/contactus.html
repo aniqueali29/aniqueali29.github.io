@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- LINK BOOTSTRAP CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- LINK FONTAWESOME CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- JQUERY CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- LINK SWEETALERT CDN -->
+  <!-- LINK CUSTOM CSS -->
+  <link rel="stylesheet" href="../css/contact.css">
+  <title>Contact Us</title>
+  <!-- LINK FAVICON -->
+  <link rel="shortcut icon" href="../images/fav.png" type="image/x-icon">
+  <style>
+    #scrollUp {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../images/top.png');
+    width: 38px;
+    height: 38px;
+  }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="container-fluid" style="background-image: url('../images/bg1.jpg');">
+    <a class="navbar-brand" id="logo" style="display: flex; justify-content: center; align-items: center;"
+      href="../../index.html"><img id="logo" src="../images/logo.png" alt=""></a>
+  </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid p-2" style="background-color: goldenrod;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Design Styles
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./livingroom.html">Living Room Styles</a></li>
+              <li><a class="dropdown-item" href="./kitchen.html">Kitchen Styles</a></li>
+              <li><a class="dropdown-item" href="./bedroom.html">Bedroom Styles</a></li>
+              <li><a class="dropdown-item" href="./bathroom.html">Bathroom Styles</a></li>
+              <li><a class="dropdown-item" href="./contemporarystyles.html">Contemporary
+                  Styles</a></li>
+              <li><a class="dropdown-item" href="./elegantlookstyles.html">Elegant Look
+                  Styles</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./furniture.html">Furniture</a></li>
+              <li><a class="dropdown-item" href="./productkitchen.html">Kitchen</a></li>
+              <li><a class="dropdown-item" href="./lightning.html">Lightning</a></li>
+              <li><a class="dropdown-item" href="./decor.html">Decor</a></li>
+              <li><a class="dropdown-item" href="./productbathroom.html">Bathroom</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./contactus.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./feedback.html">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                class="fa-solid fa-magnifying-glass fa-l" id="search-icon"
+                style="color: #000000; cursor: pointer;"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active cart-icon" data-bs-toggle="modal" data-bs-target="#wishlistModal">
+              <i class="fa-solid fa-heart fa-l" id="wishlist-icon" style="color: #000000; cursor: pointer;"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- Wishlist Modal HTML Structure -->
+  <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="wishlistModalLabel">Your Wishlist</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group" id="wishlist-items"></ul>
+          <hr>
+          <h6 class="text-end">Total Estimated Price: <strong id="wishlist-total">0.00</strong></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wishlist Modal HTML Structure -->
+
+  <div class="container mini-card mt-5">
+    <h1 class="text-center" data-aos="fade-left" data-aos-duration="1200">CONTACT US</h1><br>
+    <div class="row row-cols-1 row-cols-md-4 g-3 mt-5">
+      <div class="col">
+        <a href="tel:+923010020668">
+          <div class="card contact-card h-100">
+            <div class="card-body">
+              <div class="contact-icon">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div class="contact-text">
+                <h6 class="card-title"><b>Contact Number</b></h6>
+                <p class="card-text">
+                  <a href="tel:+1234567890">+92 3010020668</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="">
+          <div class="card contact-card h-100">
+            <div class="card-body">
+              <div class="contact-icon">
+                <i class="bi bi-whatsapp"></i>
+              </div>
+              <div class="contact-text">
+                <h6 class="card-title"><b>Whatsapp</b></h6>
+                <p class="card-text">
+                  <a href="https://wa.me/923010020668" target="_blank">Home Styler</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="https://maps.google.com/?q=123+Home+Styler,+Wellness+City">
+          <div class="card contact-card h-100">
+            <div class="card-body">
+              <div class="contact-icon">
+                <i class="bi bi-geo-alt-fill"></i>
+              </div>
+              <div class="contact-text">
+                <h6 class="card-title"><b>Address</b></h6>
+                <p class="card-text">
+                  <a href="https://maps.google.com/?q=123+Home+Styler,+Wellness+City" target="_blank">Home Styler
+                    St,
+                    Wellness City</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col">
+        <a href="">
+          <div class="card contact-card h-100">
+            <div class="card-body">
+              <div class="contact-icon">
+                <i class="bi bi-envelope-fill"></i>
+              </div>
+              <div class="contact-text">
+                <h6 class="card-title"><b>Email</b></h6>
+                <p class="card-text">
+                  <a href="mailto:contact@zara-therapy.com">contact@home-styler.com</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Modal HTML Structure -->
+  <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="wishlistModalLabel">Your Wishlist</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group" id="wishlist-items"></ul>
+          <hr>
+          <h6 class="text-end">Total Estimated Price: <strong id="wishlist-total">0.00</strong></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wishlist Modal HTML Structure -->
+
+
+  <!-- SEARCH MODAL -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="modal-search-input" class="form-control" placeholder="Search for products..." />
+          <ul id="modal-search-results" class="list-group mt-3"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark"
+            style="background-color: goldenrod!important; border: none !important;"
+            id="modal-search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SEARCH MODAL -->
+
+  <div class="contact1">
+    <div class="container-contact1">
+      <div class="contact1-pic js-tilt" data-tilt>
+        <img src="../images/contact.png" alt="IMG">
+      </div>
+
+      <form class="contact1-form validate-form">
+        <span class="contact1-form-title">
+          Get in touch
+        </span>
+
+        <div class="wrap-input1 validate-input" data-validate="Name is required">
+          <input class="input1" type="text" name="name" placeholder="Name">
+          <span class="shadow-input1"></span>
+        </div>
+
+        <div class="wrap-input1 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+          <input class="input1" type="email" name="email" placeholder="Email">
+          <span class="shadow-input1"></span>
+        </div>
+        <div class="wrap-input1 validate-input" data-validate="Message is required">
+          <textarea class="input1" name="message" placeholder="Message"></textarea>
+          <span class="shadow-input1"></span>
+        </div>
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <div class="container-contact1-form-btn">
+          <button class="contact1-form-btn" type="submit">
+            <span>
+              Send Email
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+  <div class="map-container mb-5">
+    <div class="contact1-form-title">
+      <h1>Visit Us Here</h1>
+    </div>
+    <iframe class="map"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.4566363194737!2d-122.08424958469217!3d37.42199977982455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7e86f5d4933%3A0x6e50d4e3f2a7b290!2sGoogleplex!5e0!3m2!1sen!2sus!4v1672349876650!5m2!1sen!2sus"
+      allowfullscreen>
+    </iframe>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer class="bg-body-tertiary text-center" style="border-top: 3px solid goldenrod;">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/" target="_blank" role="button"><i
+            class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.twitter.com/" target="_blank" role="button"><i
+            class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.google.com/" target="_blank" role="button"><i
+            class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/" target="_blank" role="button"><i
+            class="fab fa-instagram"></i></a>
+
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>SIGN UP FOR OUR NEWSLETTER</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+            
+            
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="form5Example24" class="form-control" placeholder="Email address" />
+              </div>
+            </div>
+            <!--Grid column-->
+            <div class="col-auto">
+              <button data-mdb-ripple-init type="submit" class="btn btn-outline-dark mb-4" id="subscribeButton">
+                SUBSCRIBE
+              </button>
+            </div>
+            <!--Grid column-->
+            
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Homestyler is a one-stop platform where users can explore stunning interior designs and purchase furniture,
+          decor, and accessories to transform their homes into stylish, functional spaces with ease and convenience.
+        </p>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">STYLES</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./livingroom.html">LivingRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./bedroom.html">BedRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./bathroom.html">BathRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./kitchen.html">Kitchen</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">PRODUCTS</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./furniture.html">Furniture</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./lightning.html">Lighting</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./decor.html">Decor</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./productbathroom.html">Bathroom</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">ABOUT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Our Team</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./contactus.html">Call Us</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Feedback</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Services</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <!-- Links -->
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">CONTACT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-home me-3 "></i> 1546 Chestnut Street,Florida</li>
+              <li><i class="fas fa-envelope me-3"></i> Homestyler@gmail.com</li>
+              <li><i class="fas fa-phone me-3"></i> +1 727-430-0836</li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: goldenrod">
+      © 2040 Copyright :
+      <a class="text-reset fw-bold" href="#">HomeStyler.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+</body>
+<!-- NEWSLETTER -->
+<script>
+  document.getElementById('subscribeButton').addEventListener('click', function (event) {
+    event.preventDefault();
+    const emailInput = document.getElementById('form5Example24');
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '') {
+      alert('Email is required');
+    } else if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address');
+    } else {
+      alert('Subscription successful!');
+      emailInput.value = '';
+    }
+  });
+</script>
+<!-- NEWSLETTER -->
+
+<!-- SEARCH JS -->
+<script>
+  document.getElementById('modal-search-btn').addEventListener('click', function () {
+    const query = document.getElementById('modal-search-input').value.trim().toLowerCase();
+    const searchResults = document.getElementById('modal-search-results');
+    searchResults.innerHTML = ''; // Clear previous results
+
+    if (query) {
+      // Define the searchable items/pages
+      const items = [
+        { name: 'contact', page: './contactus.html' },
+        { name: 'gallery', page: './gallery.html' },
+        { name: 'about', page: './aboutus.html' },
+        { name: 'feedback', page: './feedback.html' },
+        { name: 'living room styles', page: './livingroom.html' },
+        { name: 'kitchen styles', page: './kitchen.html' },
+        { name: 'bedroom styles', page: './bedroom.html' },
+        { name: 'bathroom styles', page: './bathroom.html' },
+        { name: 'contemporary styles', page: './contemporarystyles.html' },
+        { name: 'elegant look styles', page: './elegantlookstyles.html' },
+        { name: 'furniture', page: './furniture.html' },
+        { name: 'kitchen', page: './productkitchen.html' },
+        { name: 'lightning', page: './lightning.html' },
+        { name: 'decor', page: './decor.html' },
+        { name: 'bathroom', page: './bathroom.html' },
+        { name: 'home', page: '../../index.html' }
+        // Add more items here
+      ];
+
+      // Filter items that match the query
+      const matchedItems = items.filter(item => item.name.toLowerCase().includes(query));
+
+      if (matchedItems.length > 0) {
+        // Display matched items as clickable links
+        matchedItems.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'list-group-item';
+          li.innerHTML = `<a href="${item.page}" class="text-decoration-none">${item.name}</a>`;
+          searchResults.appendChild(li);
+        });
+      } else {
+        // If no items match, show a "no results" message
+        const li = document.createElement('li');
+        li.className = 'list-group-item text-danger';
+        li.textContent = 'No products found.';
+        searchResults.appendChild(li);
+      }
+    }
+  });
+</script>
+<!-- SEARCH JS -->
+
+<!-- FORM JS -->
+<script>
+  document.querySelector('.contact1-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const name = document.querySelector('input[name="name"]').value.trim();
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const message = document.querySelector('textarea[name="message"]').value.trim();
+
+    let isValid = true;
+
+    if (name === '') {
+      isValid = false;
+      alert("Name is required");
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    if (email === '' || !emailRegex.test(email)) {
+      isValid = false;
+      alert("Valid email is required");
+    }
+
+    if (message === '') {
+      isValid = false;
+      alert("Message is required");
+    }
+
+    if (isValid) {
+      alert('Form submitted successfully!');
+      
+    
+      document.querySelector('input[name="name"]').value = '';
+      document.querySelector('input[name="email"]').value = '';
+      document.querySelector('textarea[name="message"]').value = '';
+
+    }
+  });
+</script>
+<!-- FORM JS -->
+ 
+
+<script src="../js/wishlistbathroom.js"></script>
+<script src="../js/wishlistbedroom.js"></script>
+<script src="../js/wishlistlivingroom.js"></script>
+<script src="../js/wishlistkitchen.js"></script>
+<script src="../js/wishlistelegantlookstyles.js"></script>
+<script src="../js/wishlistconyemporarystyle.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<!--===============================================================================================-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!--===============================================================================================-->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="https://unpkg.com/tilt.js@1.1.13/dest/tilt.jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-oBqDVmMz4fnFO9gybBogGzF6JbP3pZIxFIO0HnlP2z1nKUMe1xt3m0Jft+PpXxgI" crossorigin="anonymous">
+  </script>
+<script
+src="https://code.jquery.com/jquery-3.7.1.min.js"
+integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+crossorigin="anonymous"></script>
+
+<!-- SCROLLUP JS -->
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script>
+$(function () {
+  $.scrollUp({
+    scrollImg: true,
+  });
+});
+</script>
+
+</html>

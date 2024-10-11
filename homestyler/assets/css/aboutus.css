@@ -1,0 +1,347 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  overflow-x: hidden;
+}
+
+.navbar-brand img {
+  width: 600px;
+  height: 190px;
+}
+
+.navbar {
+  font-size: x-large;
+}
+
+.navbar a {
+  transition: all 0.7s;
+}
+
+.navbar a:hover {
+  color: white !important;
+}
+
+.dropdown-item {
+  font-size: larger;
+  transition: all 0.7s;
+}
+
+.dropdown-item:hover {
+  background-color: goldenrod;
+}
+
+.cart-icon i {
+  font-size: 25px;
+  color: black;
+  cursor: pointer;
+}
+
+.designstyleheading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.about-content img {
+  width: 500px;
+  height: 500px;
+}
+
+.about-des {
+  margin: 100px
+}
+
+.about-des p {
+  font-size: large;
+}
+
+.about-des2 p {
+  font-size: large;
+}
+
+.craftmanship img {
+  width: 640px;
+  height: 500px;
+}
+
+
+.cards {
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  margin: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+
+
+.cards-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 15px 35px -15px rgba(0, 0, 0, 0.5),
+    0 5px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cards-image img {
+  width: 100%;
+  /* transform: scale(1.2); */
+}
+
+.name {
+  margin-top: 80px;
+  font-size: 1.4em;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+
+
+
+
+/* MEDIA QUERIES */
+/* Extra Small Devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navbar-brand img {
+    width: 300px;
+    height: 100px;
+  }
+
+  .navbar {
+    font-size: large;
+  }
+
+  .about-content img {
+    width: 100%;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-des {
+    margin: 20px
+  }
+
+  .about-des2 {
+    margin: 20px
+  }
+
+  .craftmanship img {
+    width: 100%;
+    height: 300px;
+  }
+
+  .cards {
+    width: 300px;
+  }
+
+
+}
+
+/* Small Devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .navbar-brand img {
+    width: 300px;
+    height: 100px;
+  }
+
+  .navbar {
+    font-size: large;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-content img {
+    width: 100%;
+  }
+
+  .about-des {
+    margin: 20px
+  }
+
+  .about-des2 {
+    margin: 20px
+  }
+
+  .craftmanship img {
+    width: 100%;
+    height: 300px;
+  }
+
+}
+
+/* Medium Devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .navbar-brand img {
+    width: 350px;
+    height: 125px;
+  }
+
+  .navbar {
+    font-size: large;
+  }
+
+  .about-content img {
+    width: 100%;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-des {
+    margin: 20px
+  }
+
+  .about-des2 {
+    margin: 20px
+  }
+
+  .craftmanship img {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+/* Large Devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .navbar-brand img {
+    width: 300px;
+    height: 100px;
+  }
+
+  .navbar {
+    font-size: large;
+  }
+
+  .about-des {
+    margin-top: 20px
+  }
+
+  .about-des2 {
+    margin: 20px
+  }
+
+  .craftmanship img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .craftmanship-des {
+    font-size: medium;
+  }
+}
+
+/* Extra Large Devices (large desktops, 1200px) */
+@media (min-width: 1200px) {
+  .navbar-brand img {
+    width: 600px;
+    height: 190px;
+  }
+
+  .craftmanship img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+
+  body {
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+  }
+
+  body {
+    --sb-track-color: #232E33;
+    --sb-thumb-color: #daa520;
+    --sb-size: 15px;
+  }
+  
+  body::-webkit-scrollbar {
+    width: var(--sb-size)
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+    
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+      scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
+  }

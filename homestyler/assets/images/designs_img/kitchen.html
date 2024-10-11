@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/designs.css">
+
+  <title>HomeStyler</title>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <div class="container">
+    <a class="navbar-brand" id="logo" style="display: flex; justify-content: center; align-items: center;" href="#"><img
+        id="logo" src="../images/logo.png" alt=""></a>
+  </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid p-2" style="background-color: goldenrod;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Design Styles
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./livingroom.html">Living Room</a></li>
+              <li><a class="dropdown-item" href="./kitchen.html">Kitchen</a></li>
+              <li><a class="dropdown-item" href="./bedroom.html">Bedroom</a></li>
+              <li><a class="dropdown-item" href="./bathroom.html">Bathroom</a></li>
+              <li><a class="dropdown-item" href="./contemporarystyles.html">Contemporary
+                  Styles</a></li>
+              <li><a class="dropdown-item" href="./elegantlookstyles.html">Elegant Look
+                  Styles</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./furniture.html">Furniture</a></li>
+              <li><a class="dropdown-item" href="./productkitchen.html">Kitchen</a></li>
+              <li><a class="dropdown-item" href="./lightning.html">Lightning</a></li>
+              <li><a class="dropdown-item" href="./decor.html">Decor</a></li>
+              <li><a class="dropdown-item" href="./productbathroom.html">Bathroom</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                class="fa-solid fa-magnifying-glass fa-l" id="search-icon"
+                style="color: #000000; cursor: pointer;"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal"><i
+                class="fa-solid fa-cart-shopping" id="cart-icon" style="color: #000000;cursor: pointer;"></i></a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- CART MODAL -->
+  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cartModalLabel">Cart</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="cart-items" class="list-group"></ul>
+          <p class="mt-3"><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark"
+            style="background-color: goldenrod!important; border: none !important;" id="proceed-to-checkout-btn">Proceed
+            to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- CART MODAL -->
+
+  <!-- SEARCH MODAL -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="search-input" class="form-control" placeholder="Search for products..." />
+          <ul id="search-results" class="list-group mt-3"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark"
+            style="background-color: goldenrod!important; border: none !important;" id="search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SEARCH MODAL -->
+
+  <!-- LIVING ROOM CONTENT -->
+
+  <!-- Banner Start -->
+  <div class="banner">
+    <img src="../images/designs_img/kitchen_banner.jpg" height="500px" width="100px"
+      class="img-fluid" alt="">
+    <h1 class="animated-h1 text-center">KITCHENS</h1>
+  </div>
+  <!-- Banner End-->
+
+  <!-- Cards Container Start -->
+
+  <div class="container design-cards mt-3">
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 1 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-1.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Modern Kitchen</h5>
+            <p class="card-text">Sleek design with minimalistic elements, smart appliances, clean lines, and innovative,
+              space-saving solutions.</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(0)">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 2 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-2.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Traditional Kitchen</h5>
+            <p class="card-text">Classic details, ornate cabinets, and rich colors with wooden elements, elegant
+              finishes, and timeless craftsmanship</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(1)">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 3 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-4.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Industrial Kitchen</h5>
+            <p class="card-text">Raw, unfinished look with metal and wood accents, exposed brick, industrial lighting,
+              and open shelving</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(2)">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 4 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-5.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Minimalist Kitchen</h5>
+            <p class="card-text">Clean lines, clutter-free with focus on simplicity and functionality, minimal décor,
+              hidden storage, and neutral tones.</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(3)">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 5 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-6.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Farmhouse Kitchen</h5>
+            <p class="card-text">Cozy with rustic charm and farmhouse sinks, distressed wood, open shelving, and
+              vintage-inspired fixtures.</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(4)">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 6 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-7.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Contemporary Kitchen</h5>
+            <p class="card-text">Stylish and up-to-date with bold colors and sleek materials, cabinetry,
+              modern lighting, and appliances</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(5)">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 7 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-8.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Scandinavian Kitchen</h5>
+            <p class="card-text">Bright, light wood with a focus on functionality and simplicity, crisp white accents,
+              and clean, airy spaces.</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(6)">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 8 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-3.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Rustic Kitchen</h5>
+            <p class="card-text">Warm, cozy feel with natural materials and vintage accessories, handcrafted details,
+              and soft, inviting textures.</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(7)">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3 d-flex justify-content-center">
+        <!-- Card 9 -->
+        <div class="card">
+          <img src="../images/designs_img/kitchen-9.jpg" class="card-img-top img-fluid" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Mediterranean Kitchen</h5>
+            <p class="card-text">Warm tones, natural materials, and decorative tiles, inspired by Southern European
+              aesthetics.</p>
+            <a href="#" class="btn btn-primary view-btn" data-bs-toggle="modal" data-bs-target="#detailsModal"
+              onclick="openModal(8)">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cards Container End -->
+
+
+  <!-- Modal HTML Structure -->
+  <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailsModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <img id="roomImage" src="" class="img-fluid rounded shadow" alt="Room Image">
+              </div>
+              <div class="col-md-6">
+                <h6 class="my-3">Products & Prices:</h6>
+                <ul class="list-group list-price" id="productList">
+                </ul>
+                <hr>
+                <h6 class="text-end">Total Estimated Price: <strong id="totalPrice"></strong></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn" style="background-color: goldenrod; color: white;">Add to
+            Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- LIVING ROOM CONTENT -->
+
+  <!-- Footer -->
+  <footer class="bg-body-tertiary text-center">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="#!" role="button"><i
+            class="fab fa-instagram"></i></a>
+
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>SIGN UP FOR OUR NEWSLETTER</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <!-- Email input -->
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="form5Example24" class="form-control" placeholder="Email address" />
+              </div>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-auto">
+              <!-- Submit button -->
+              <button data-mdb-ripple-init type="submit" class="btn btn-outline-dark mb-4">
+                SUBSCRIBE
+              </button>
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Homestyler is a one-stop platform where users can explore stunning interior designs and purchase
+          furniture, decor, and accessories to transform their homes into stylish, functional spaces with ease
+          and convenience.
+        </p>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase" style="text-decoration: underline;">STYLES</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">LivingRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">BedRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">BathRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Kitchen</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase" style="text-decoration: underline;">PRODUCTS</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Furniture</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Lighting</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Decor</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Bathroom</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="text-uppercase" style="text-decoration: underline;">ABOUT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Our Team</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Call Us</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Feedback</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="#!">Services</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <!-- Links -->
+            <h5 class="text-uppercase" style="text-decoration: underline;">CONTACT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-home me-3 "></i> 1546 Chestnut Street,Florida</li>
+              <li><i class="fas fa-envelope me-3"></i> Homestyler@gmail.com</li>
+              <li><i class="fas fa-phone me-3"></i> +1 727-430-0836</li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: goldenrod">
+      © 2040 Copyright :
+      <a class="text-reset fw-bold" href="#">HomeStyler.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  <script>
+    const roomDetails = [
+      {
+        name: "Modern Kitchen",
+        image: "../images/designs_img/kitchen-1.jpg",
+        description: "An Urban Chic Living Room combines sleek, modern furniture with cozy textures, neutral tones, and bold accents for a stylish, city-inspired vibe.",
+        products: [
+          { name: "Smart oven", price: 1200 },
+          { name: "Induction cooktop", price: 150 },
+          { name: "Quartz countertops", price: 75 },
+        ]
+      },
+      {
+        name: "Traditional Kitchen",
+        image: "../images/designs_img/kitchen-2.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Wooden cabinets", price: 4000 },
+          { name: "Granite countertops", price: 60 },
+          { name: "Cast-iron stove", price: 150 }
+        ]
+      },
+      {
+        name: "Industrial Kitchen",
+        image: "../images/designs_img/kitchen-4.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Stainless steel countertop", price: 600 },
+          { name: "Open shelving", price: 200 },
+          { name: "Metal pendant lights", price: 150 }
+        ]
+      },
+      {
+        name: "Minimalist Kitchen",
+        image: "../images/designs_img/kitchen-5.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Integrated fridge", price: 1500 },
+          { name: "Smooth cabinet doors", price: 2000 },
+          { name: "Matte finish sink", price: 300 }
+        ]
+      },
+      {
+        name: "Farmhouse Kitchen",
+        image: "../images/designs_img/kitchen-6.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Apron-front sink", price: 900 },
+          { name: "Butcher block countertop", price: 80 },
+          { name: "Shiplap walls", price: 250 }
+        ]
+      },
+      {
+        name: "Contemporary Kitchen",
+        image: "../images/designs_img/kitchen-7.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Glass backsplash", price: 300 },
+          { name: "High-gloss cabinets", price: 4200 },
+          { name: "Built-in microwave", price: 1500 }
+        ]
+      },
+      {
+        name: "Scandinavian Kitchen",
+        image: "../images/designs_img/kitchen-8.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Wooden countertops", price: 600 },
+          { name: "White ceramic sink", price: 400 },
+          { name: "Open shelving", price: 150 }
+        ]
+      },
+      {
+        name: "Rustic Kitchen",
+        image: "../images/designs_img/kitchen-3.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { name: "Wooden beams", price: 500 },
+          { name: "Copper sink", price: 700 },
+          { name: "Brick backsplash", price: 300 }
+        ]
+      },
+      {
+        name: "Mediterranean Kitchen",
+        image: "../images/designs_img/kitchen-9.jpg",
+        description: "A minimalist room with monochrome colors and elegant simplicity.",
+        products: [
+          { "name": "Tile backsplash", price: 500 },
+          { "name": "Wooden island", price: 1500 },
+          { "name": "Ceramic sink", price: 300 }
+        ]
+      },
+    ]
+    function openModal(index) {
+      const room = roomDetails[index];
+
+      document.getElementById('detailsModalLabel').textContent = room.name;
+      document.getElementById('roomImage').src = room.image;
+      document.getElementById('roomImage').alt = room.name;
+
+      // Populate product list
+      const productList = document.getElementById('productList');
+      productList.innerHTML = '';
+      let total = 0;
+
+      room.products.forEach(product => {
+        total += product.price;
+        const li = document.createElement('li');
+        li.className = 'list-group-item d-flex justify-content-between align-items-center';
+        li.innerHTML = `${product.name} <span class="badge rounded-pill">$${product.price}</span>`;
+        productList.appendChild(li);
+      });
+
+      // Total price
+      document.getElementById('totalPrice').textContent = `$${total}`;
+    }
+
+  </script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/product.css">
+  <title>HomeStyler</title>
+  <link rel="shortcut icon" href="../images/fav.png" type="image/x-icon">
+  <style>
+    #scrollUp {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../images/top.png');
+    width: 38px;
+    height: 38px;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div  class="container-fluid" style="background-image: url('../images/bg1.jpg');">
+    <a class="navbar-brand" id="logo" style="display: flex; justify-content: center; align-items: center;"
+      href="../../index.html"><img id="logo" src="../images/logo.png" alt=""></a>
+  </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid p-2" style="background-color: goldenrod;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Design Styles
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./livingroom.html">Living Room Styles</a></li>
+              <li><a class="dropdown-item" href="./kitchen.html">Kitchen Styles</a></li>
+              <li><a class="dropdown-item" href="./bedroom.html">Bedroom Styles</a></li>
+              <li><a class="dropdown-item" href="./bathroom.html">Bathroom Styles</a></li>
+              <li><a class="dropdown-item" href="./contemporarystyles.html">Contemporary
+                  Styles</a></li>
+              <li><a class="dropdown-item" href="./elegantlookstyles.html">Elegant Look
+                  Styles</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./furniture.html">Furniture</a></li>
+              <li><a class="dropdown-item" href="./productkitchen.html">Kitchen</a></li>
+              <li><a class="dropdown-item" href="./lightning.html">Lightning</a></li>
+              <li><a class="dropdown-item" href="./decor.html">Decor</a></li>
+              <li><a class="dropdown-item" href="./productbathroom.html">Bathroom</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./contactus.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./feedback.html">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                class="fa-solid fa-magnifying-glass fa-l" id="search-icon"
+                style="color: #000000; cursor: pointer;"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active cart-icon" data-bs-toggle="modal" data-bs-target="#wishlistModal">
+              <i class="fa-solid fa-heart fa-l" id="wishlist-icon" style="color: #000000; cursor: pointer;"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- Wishlist Modal HTML Structure -->
+  <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="wishlistModalLabel">Your Wishlist</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group" id="wishlist-items"></ul>
+          <hr>
+          <h6 class="text-end">Total Estimated Price: <strong id="wishlist-total">0.00</strong></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wishlist Modal HTML Structure -->
+
+
+  <!-- SEARCH MODAL -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="modal-search-input" class="form-control" placeholder="Search for products..." />
+          <ul id="modal-search-results" class="list-group mt-3"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark"
+            style="background-color: goldenrod!important; border: none !important;"
+            id="modal-search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SEARCH MODAL -->
+
+  <!-- CONTENT -->
+  <!-- Banner Start -->
+  <div class="banner position-relative">
+    <img src="../images/products_img/lightning_banner.jpg" class="img-fluid w-100" alt="Furniture Banner">
+    <h1 class="overlay-title text-center">LIGHTNINGS</h1>
+  </div>
+  <!-- Banner End -->
+
+  <hr>
+  <div class="section">
+    <div class="container">
+      <div class="d-flex align-items-center mb-4">
+        <h5 class="me-2">Filter by Category:</h5>
+        <select id="categoryFilter" class="form-select" aria-label="Category filter">
+          <option value="all">All</option>
+          <option value="ceiling">Ceiling Lights</option>
+          <option value="task">Task Lighting</option>
+          <option value="accent">Accent Lighting</option>
+          <option value="t-lamp">Table Lamps</option>
+          <option value="wall">Wall Lights</option>
+        </select>
+      </div>
+
+      <div class="row gy-4 mt-3" id="productGrid">
+        <!-- Ceiling Lights -->
+        <div class="col-md-6 category-ceiling">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_1.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Crystal Chandelier</p>
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p class="description">An elegant crystal chandelier with intricate detailing, providing luxurious ambient
+                lighting for grand spaces.</p>
+              <p class="fw-bold ">Price: $1200</p>
+              <button class="btn add-to-wishlist" data-name="CRYSTAL CHANDELIER" data-price="1200">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-ceiling">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_2.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Gold-Plated Ceiling</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>A minimalist flush mount light with a stunning gold-plated finish for refined ambient lighting.</p>
+              <p class="fw-bold">Price: $800</p>
+              <button class="btn add-to-wishlist" data-name="GOLD PLATED CEILING" data-price="800">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-ceiling">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_3.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Italian Murano Glass Pendant</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Handcrafted Murano glass pendant light, blending artisanal craftsmanship with contemporary design for
+                unique ceiling illumination.</p>
+              <p class="fw-bold ">Price: $1500</p>
+              <button class="btn add-to-wishlist" data-name="ITALIAN MURANO GLASS PENDANT" data-price="1500">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-ceiling">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_4.jpg)">
+              <div class="overlay">
+                <p class="mb-1">LED Recessed Light Set</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Energy-efficient, dimmable LED recessed lights, offering seamless integration into modern ceilings with
+                adjustable brightness.</p>
+              <p class="fw-bold ">Price: $950</p>
+              <button class="btn add-to-wishlist" data-name="LED RECESSED LIGHT SET" data-price="950">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TASK LIGHTING -->
+        <div class="col-md-6 category-task">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_5.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Swarovski Crystal Wall Sconce</p>
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Elegant wall sconce adorned with Swarovski crystals, delivering soft accent lighting with a touch of
+                luxurious sparkle.</p>
+              <p class="fw-bold ">Price: $650</p>
+              <button class="btn add-to-wishlist" data-name="SWAROVSKI CRYSTAL WALL SCONECE" data-price="650">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-task">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_6.webp)">
+              <div class="overlay">
+                <p class="mb-1">Brass Art Deco Wall Light</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Refined brass Art Deco-inspired wall light, perfect for adding sophistication and style to upscale
+                interiors.</p>
+              <p class="fw-bold ">Price: $749</p>
+              <button class="btn add-to-wishlist" data-name="BRASS ART DECO WALL LIGHT" data-price="749">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-task">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_7.webp)">
+              <div class="overlay">
+                <p class="mb-1">Gilded Picture Light</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Opulent gilded picture light designed to highlight artwork and décor, enhancing both function and
+                luxury appeal.</p>
+              <p class="fw-bold ">Price: $750</p>
+              <button class="btn add-to-wishlist" data-name="GILDED PICTURE LIGHT" data-price="750">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-task">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_8.jpg)">
+              <div class="overlay">
+                <p class="mb-1">LED Wall Accent Light</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Modern LED wall light with adjustable angles, providing focused accent lighting for architectural
+                details and displays.</p>
+              <p class="fw-bold ">Price: $500</p>
+              <button class="btn add-to-wishlist" data-name="LED WALL ACCENT LIGHT" data-price="500">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accent Lighting -->
+        <div class="col-md-3 category-accent">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_9.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Italian Marble Floor Lamp</p>
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Luxurious marble and brass floor lamp, a stunning statement piece blending natural materials with
+                refined craftsmanship.</p>
+              <p class="fw-bold ">Price: $600</p>
+              <button class="btn add-to-wishlist" data-name="ITALIAN MARBLE FLOOR LAMP" data-price="600">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 category-accent">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_10.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Mid-Century Brass Floor Lamp</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>A retro mid-century inspired brass floor lamp, offering both ambient and task lighting with timeless
+                appeal.</p>
+              <p class="fw-bold ">Price: $1000</p>
+              <button class="btn add-to-wishlist" data-name="MID-CENTURY BRASS FLOOR LAMP" data-price="1000">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 category-accent">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front "
+              style="background-image: url(../images/products_img/lightning_11.jpg); object-fit:cover; background-size: cover; background-position: center;">
+              <div class="overlay">
+                <p class="mb-1">Crystal Arc Floor Lamp</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>An elegant arc lamp with a crystal base, adding luxury and sophistication to large living spaces.</p>
+              <p class="fw-bold ">Price: $850</p>
+              <button class="btn add-to-wishlist" data-name="CRYSTAL ARC FLOOR LAMP" data-price="850">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 category-accent">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_12.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Leather-Wrapped Reading Lamp</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Modern leather-wrapped floor lamp designed for focused reading light, combining comfort and chic
+                design.</p>
+              <p class="fw-bold ">Price: $850</p>
+              <button class="btn add-to-wishlist" data-name="LEATHER-WRAPPED READING LAMP" data-price="850">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLE LAMPS -->
+        <div class="col-md-6 category-t-lamp">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_13.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Hand-Blown Glass Table Lamp</p>
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Exquisite hand-blown glass table lamp with a soft glow, perfect for luxurious living rooms or bedrooms.
+              </p>
+              <p class="fw-bold ">Price: $900</p>
+              <button class="btn add-to-wishlist" data-name="HAND-BLOWN GLASS TABLE LAMP" data-price="900">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-t-lamp">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_14.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Brass and Crystal Table Lamp</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>A timeless brass and crystal table lamp that combines classic design with modern functionality for
+                elegant interiors.</p>
+              <p class="fw-bold ">Price: $800</p>
+              <button class="btn add-to-wishlist" data-name="BRASS AND CRYSTAL TABLE LAMP" data-price="800">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-t-lamp">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_15.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Porcelain Art Deco Table Lamp</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Handcrafted porcelain Art Deco-inspired lamp with intricate detailing, offering soft ambient lighting
+                for bedside tables.</p>
+              <p class="fw-bold ">Price: $1200</p>
+              <button class="btn add-to-wishlist" data-name="PORCELAIN ART DECO TABLE LAMP" data-price="1200">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 category-t-lamp">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_16.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Swarovski Crystal Table Lamp</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>An opulent Swarovski crystal table lamp, casting a beautiful glow that adds luxury to any room.</p>
+              <p class="fw-bold ">Price: $1400</p>
+              <button class="btn add-to-wishlist" data-name="SWAROVSKI CRYSTAL TABLE LAMP" data-price="1400">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- WALL LIGHTS -->
+        <div class="col-md-3 category-wall">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_17.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Lantern Outdoor Sconce</p>
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Weather-resistant brass outdoor lantern sconce, perfect for illuminating entryways with both elegance
+                and durability.</p>
+              <p class="fw-bold ">Price: $120</p>
+              <button class="btn add-to-wishlist" data-name="LANTERN OUTDOOR SCONCE" data-price="120">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 category-wall">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_18.webp)">
+              <div class="overlay">
+                <p class="mb-1">LED Garden Pathway Lights</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Sleek LED pathway lights with weatherproof design, providing soft illumination for gardens and outdoor
+                spaces.</p>
+              <p class="fw-bold ">Price: $130</p>
+              <button class="btn add-to-wishlist" data-name="LED GARDEN PATHWAY LIGHTS" data-price="130">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 category-wall">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_19.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Wrought Iron Outdoor Chandelier</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Rustic wrought iron chandelier, designed to create an inviting outdoor ambiance for patios or garden
+                dining areas.</p>
+              <p class="fw-bold ">Price: $800</p>
+              <button class="btn add-to-wishlist" data-name="WROUGHT IRON OUTDOOR CHANDELIER" data-price="800">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 category-wall">
+          <div class="card" ontouchstart="this.classList.toggle('hover');">
+            <div class="card-front" style="background-image: url(../images/products_img/lightning_20.jpg)">
+              <div class="overlay">
+                <p class="mb-1">Solar-Powered Wall Light</p>
+
+              </div>
+            </div>
+            <div class="card-back text-center p-3">
+              <p>Eco-friendly, solar-powered outdoor wall light, offering sustainable illumination with a contemporary
+                design for gardens and patios.</p>
+              <p class="fw-bold ">Price: $160</p>
+              <button class="btn add-to-wishlist" data-name="SOLAR-POWERED WALL LIGHT" data-price="160">Add To
+                Wishlist</button>
+              <p class="fw-bold pt-3">Product Rating : 4.5/5</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <!-- CONTENT -->
+
+  <!-- Footer -->
+  <footer class="bg-body-tertiary text-center" style="border-top: 3px solid goldenrod;">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/"
+          target="_blank" role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.twitter.com/"
+          target="_blank" role="button"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.google.com/"
+          target="_blank" role="button"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/"
+          target="_blank" role="button"><i class="fab fa-instagram"></i></a>
+
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>SIGN UP FOR OUR NEWSLETTER</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="form5Example24" class="form-control" placeholder="Email address" />
+              </div>
+            </div>
+            <!--Grid column-->
+            <div class="col-auto">
+              <button data-mdb-ripple-init type="submit" class="btn btn-outline-dark mb-4" id="subscribeButton">
+                SUBSCRIBE
+              </button>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Homestyler is a one-stop platform where users can explore stunning interior designs and purchase furniture,
+          decor, and accessories to transform their homes into stylish, functional spaces with ease and convenience.
+        </p>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">STYLES</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./livingroom.html">LivingRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./bedroom.html">BedRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./bathroom.html">BathRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./kitchen.html">Kitchen</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">PRODUCTS</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./furniture.html">Furniture</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./lightning.html">Lighting</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./decor.html">Decor</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./productbathroom.html">Bathroom</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">ABOUT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./aboutus.html">Our Team</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./contactus.html">Call Us</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./feedback.html">Feedback</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./feedback.html">Rating</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <!-- Links -->
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">CONTACT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-home me-3 "></i> 1546 Chestnut Street,Florida</li>
+              <li><i class="fas fa-envelope me-3"></i> Homestyler@gmail.com</li>
+              <li><i class="fas fa-phone me-3"></i> +1 727-430-0836</li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: goldenrod">
+      © 2040 Copyright :
+      <a class="text-reset fw-bold" href="../../index.html">HomeStyler.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+</body>
+<!-- NEWSLETTER -->
+<script>
+  document.getElementById('subscribeButton').addEventListener('click', function (event) {
+    event.preventDefault();
+    const emailInput = document.getElementById('form5Example24');
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '') {
+      alert('Email is required');
+    } else if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address');
+    } else {
+      alert('Subscription successful!');
+      emailInput.value = '';
+    }
+  });
+</script>
+<!-- NEWSLETTER -->
+<!-- SEARCH JS -->
+<script>
+  document.getElementById('modal-search-btn').addEventListener('click', function () {
+    const query = document.getElementById('modal-search-input').value.trim().toLowerCase();
+    const searchResults = document.getElementById('modal-search-results');
+    searchResults.innerHTML = ''; // Clear previous results
+
+    if (query) {
+      // Define the searchable items/pages
+      const items = [
+        { name: 'contact', page: './contactus.html' },
+        { name: 'gallery', page: './gallery.html' },
+        { name: 'about', page: './aboutus.html' },
+        { name: 'feedback', page: './feedback.html' },
+        { name: 'living room styles', page: './livingroom.html' },
+        { name: 'kitchen styles', page: './kitchen.html' },
+        { name: 'bedroom styles', page: './bedroom.html' },
+        { name: 'bathroom styles', page: './bathroom.html' },
+        { name: 'contemporary styles', page: './contemporarystyles.html' },
+        { name: 'elegant look styles', page: './elegantlookstyles.html' },
+        { name: 'furniture', page: './furniture.html' },
+        { name: 'kitchen', page: './productkitchen.html' },
+        { name: 'lightning', page: './lightning.html' },
+        { name: 'decor', page: './decor.html' },
+        { name: 'bathroom', page: './bathroom.html' },
+        { name: 'home', page: '../../index.html' }
+        // Add more items here
+      ];
+
+      // Filter items that match the query
+      const matchedItems = items.filter(item => item.name.toLowerCase().includes(query));
+
+      if (matchedItems.length > 0) {
+        // Display matched items as clickable links
+        matchedItems.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'list-group-item';
+          li.innerHTML = `<a href="${item.page}" class="text-decoration-none">${item.name}</a>`;
+          searchResults.appendChild(li);
+        });
+      } else {
+        // If no items match, show a "no results" message
+        const li = document.createElement('li');
+        li.className = 'list-group-item text-danger';
+        li.textContent = 'No products found.';
+        searchResults.appendChild(li);
+      }
+    }
+  });
+</script>
+<!-- SEARCH JS -->
+
+<!-- FILTER JS -->
+<script>
+  const filter = document.getElementById('categoryFilter');
+  const productGrid = document.getElementById('productGrid');
+
+  filter.addEventListener('change', function () {
+    const selectedCategory = this.value;
+    const allProducts = productGrid.children;
+
+    for (let i = 0; i < allProducts.length; i++) {
+      const product = allProducts[i];
+      if (selectedCategory === 'all' || product.classList.contains(`category-${selectedCategory}`)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    }
+  });
+</script>
+<!-- FILTER JS -->
+<script src="../js/wishlistproduct.js"></script>
+<script src="../js/wishlistbathroom.js"></script>
+<script src="../js/wishlistbedroom.js"></script>
+<script src="../js/wishlistlivingroom.js"></script>
+<script src="../js/wishlistkitchen.js"></script>
+<script src="../js/wishlistelegantlookstyles.js"></script>
+<script src="../js/wishlistconyemporarystyle.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+
+<!-- SCROLLUP JS -->
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script>
+  $(function () {
+    $.scrollUp({
+      scrollImg: true,
+    });
+  });
+</script>
+
+
+</html>

@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/gallery.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="shortcut icon" href="../images/fav.png" type="image/x-icon">
+  <style>
+    #scrollUp {
+    bottom: 20px;
+    right: 20px;
+    background-image: url('../images/top.png');
+    width: 38px;
+    height: 38px;
+  }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div  class="container-fluid" style="background-image: url('../images/bg1.jpg');">
+    <a class="navbar-brand" id="logo" style="display: flex; justify-content: center; align-items: center;"
+      href="../../index.html"><img id="logo" src="../images/logo.png" alt=""></a>
+  </div>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+    <div class="container-fluid p-2" style="background-color: goldenrod;">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Design Styles
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./livingroom.html">Living Room Styles</a></li>
+              <li><a class="dropdown-item" href="./kitchen.html">Kitchen Styles</a></li>
+              <li><a class="dropdown-item" href="./bedroom.html">Bedroom Styles</a></li>
+              <li><a class="dropdown-item" href="./bathroom.html">Bathroom Styles</a></li>
+              <li><a class="dropdown-item" href="./contemporarystyles.html">Contemporary
+                  Styles</a></li>
+              <li><a class="dropdown-item" href="./elegantlookstyles.html">Elegant Look
+                  Styles</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Products
+            </a>
+            <ul class="dropdown-menu active">
+              <li><a class="dropdown-item" href="./furniture.html">Furniture</a></li>
+              <li><a class="dropdown-item" href="./productkitchen.html">Kitchen</a></li>
+              <li><a class="dropdown-item" href="./lightning.html">Lightning</a></li>
+              <li><a class="dropdown-item" href="./decor.html">Decor</a></li>
+              <li><a class="dropdown-item" href="./productbathroom.html">Bathroom</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./contactus.html">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="./feedback.html">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                class="fa-solid fa-magnifying-glass fa-l" id="search-icon"
+                style="color: #000000; cursor: pointer;"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active cart-icon" data-bs-toggle="modal" data-bs-target="#wishlistModal">
+              <i class="fa-solid fa-heart fa-l" id="wishlist-icon" style="color: #000000; cursor: pointer;"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- NAVBAR -->
+
+  <!-- Wishlist Modal HTML Structure -->
+  <div class="modal fade" id="wishlistModal" tabindex="-1" aria-labelledby="wishlistModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="wishlistModalLabel">Your Wishlist</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group" id="wishlist-items"></ul>
+          <hr>
+          <h6 class="text-end">Total Estimated Price: <strong id="wishlist-total">0.00</strong></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Wishlist Modal HTML Structure -->
+
+  <!-- SEARCH MODAL -->
+  <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="searchModalLabel">Search</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="modal-search-input" class="form-control" placeholder="Search for products..." />
+          <ul id="modal-search-results" class="list-group mt-3"></ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-dark btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark"
+            style="background-color: goldenrod!important; border: none !important;"
+            id="modal-search-btn">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SEARCH MODAL -->>
+
+  <!-- GALLERY -->
+  <section class="portfolio">
+    <header class="section-head">
+      <h1>Explore Our Curated Interior Design Collection</h1>
+    </header>
+    <main class="mainContainer">
+      <!--  *****  Buttons Section Starts  *****  -->
+      <div class="button-group">
+        <button class="button active" data-filter="*">All</button>
+        <button class="button" data-filter=".design">Design</button>
+        <button class="button" data-filter=".Furniture">Furniture</button>
+        <button class="button" data-filter=".Designer">Interior Designer</button>
+      </div>
+      <!--  *****  Buttons Section Ends  *****  -->
+      <!--  *****  Gallery Section Starts  *****  -->
+      <div class="gallery">
+
+        <div class="item design">
+          <img src="../images/gallery/img-1.jpg " alt="Design Image">
+          <div class="overlay">
+            <a href="../images/gallery/img-1.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-1.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-2.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-2.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-2.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-3.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-3.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-3.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-4.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-4.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-4.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-5.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-5.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-5.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-6.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-6.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-6.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Designer">
+          <img src="../images/gallery/img-7.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-7.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-7.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Designer">
+          <img src="../images/gallery/img-9.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-9.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-9.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-10.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-10.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-10.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-11.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-11.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-11.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-12.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-12.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-12.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-13.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-13.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-13.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-14.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-14.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-14.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-15.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-15.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-15.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-16.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-16.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-16.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-17.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-17.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-17.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-18.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-18.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-18.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-19.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-19.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-19.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-20.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-20.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-20.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-21.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-21.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-21.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-22.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-22.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-22.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-23.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-23.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-23.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-24.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-24.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-24.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-25.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-25.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-25.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Designer">
+          <img src="../images/gallery/img-8.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-8.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-8.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-27.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-27.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-27.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-28.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-28.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-28.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-29.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-29.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-29.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-30.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-30.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-30.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Designer">
+          <img src="../images/gallery/img-37.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-37.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-37.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Furniture">
+          <img src="../images/gallery/img-32.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-32.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-32.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-33.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-33.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-32.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-34.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-34.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-34.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Designer">
+          <img src="../images/gallery/img-35.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-35.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-35.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item Designer">
+          <img src="../images/gallery/img-36.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-36.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-36.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+        <div class="item design">
+          <img src="../images/gallery/img-38.jpg">
+          <div class="overlay">
+            <a href="../images/gallery/img-38.jpg" data-bs-toggle="modal" data-bs-target="#imageModal"
+              data-image="../images/gallery/img-38.jpg" class="gallery-link">VIEW MORE</a>
+          </div>
+        </div>
+
+      </div>
+      </div>
+      <!--  *****  Gallery Section Ends  *****  -->
+    </main>
+  </section>
+  <!-- GALLERY -->
+
+  <!-- IMAGE MODAL -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">&times;</button>
+        <button type="button" class="modal-arrow left" id="prevImage"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="modal-arrow right" id="nextImage"><i class="fas fa-chevron-right"></i></button>
+        <div class="modal-body">
+          <img id="modal-image" class="img-fluid w-100" src="" alt="Gallery Image">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IMAGE MODAL -->
+
+  <!-- Footer -->
+  <footer class="bg-body-tertiary text-center" style="border-top: 3px solid goldenrod;">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/"
+          target="_blank" role="button"><i class="fab fa-facebook-f"></i></a>
+
+        <!-- Twitter -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.twitter.com/"
+          target="_blank" role="button"><i class="fab fa-twitter"></i></a>
+
+        <!-- Google -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.google.com/"
+          target="_blank" role="button"><i class="fab fa-google"></i></a>
+
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/"
+          target="_blank" role="button"><i class="fab fa-instagram"></i></a>
+
+      </section>
+      <!-- Section: Social media -->
+
+      <!-- Section: Form -->
+      <section class="">
+        <form action="">
+          <!--Grid row-->
+          <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-auto">
+              <p class="pt-2">
+                <strong>SIGN UP FOR OUR NEWSLETTER</strong>
+              </p>
+            </div>
+            <!--Grid column-->
+
+
+            <!--Grid column-->
+            <div class="col-md-5 col-12">
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input type="email" id="form5Example24" class="form-control" placeholder="Email address" />
+              </div>
+            </div>
+            <!--Grid column-->
+            <div class="col-auto">
+              <button data-mdb-ripple-init type="submit" class="btn btn-outline-dark mb-4" id="subscribeButton">
+                SUBSCRIBE
+              </button>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </form>
+      </section>
+      <!-- Section: Form -->
+
+      <!-- Section: Text -->
+      <section class="mb-4">
+        <p>
+          Homestyler is a one-stop platform where users can explore stunning interior designs and purchase furniture,
+          decor, and accessories to transform their homes into stylish, functional spaces with ease and convenience.
+        </p>
+      </section>
+      <!-- Section: Text -->
+
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">STYLES</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./livingroom.html">LivingRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./bedroom.html">BedRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./bathroom.html">BathRoom</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./kitchen.html">Kitchen</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">PRODUCTS</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./furniture.html">Furniture</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./lightning.html">Lighting</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./decor.html">Decor</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./productbathroom.html">Bathroom</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">ABOUT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./aboutus.html">Our Team</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./contactus.html">Call Us</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./feedback.html">Feedback</a>
+              </li>
+              <li>
+                <a class="text-body" style="text-decoration: none;" href="./feedback.html">Rating</a>
+              </li>
+            </ul>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="text-align: left;">
+            <!-- Links -->
+            <h5 class="text-uppercase" style="text-decoration: underline;color:goldenrod;">CONTACT US</h5>
+
+            <ul class="list-unstyled mb-0">
+              <li><i class="fas fa-home me-3 "></i> 1546 Chestnut Street,Florida</li>
+              <li><i class="fas fa-envelope me-3"></i> Homestyler@gmail.com</li>
+              <li><i class="fas fa-phone me-3"></i> +1 727-430-0836</li>
+            </ul>
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: goldenrod">
+      © 2040 Copyright :
+      <a class="text-reset fw-bold" href="../../index.html">HomeStyler.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+<!-- NEWSLETTER -->
+<script>
+  document.getElementById('subscribeButton').addEventListener('click', function (event) {
+    event.preventDefault();
+    const emailInput = document.getElementById('form5Example24');
+    const email = emailInput.value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === '') {
+      alert('Email is required');
+    } else if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address');
+    } else {
+      alert('Subscription successful!');
+      emailInput.value = '';
+    }
+  });
+</script>
+<!-- NEWSLETTER -->
+
+
+<!-- SEARCH JS -->
+<script>
+  document.getElementById('modal-search-btn').addEventListener('click', function () {
+    const query = document.getElementById('modal-search-input').value.trim().toLowerCase();
+    const searchResults = document.getElementById('modal-search-results');
+    searchResults.innerHTML = '';
+
+    if (query) {
+      const items = [
+        { name: 'contact', page: './contactus.html' },
+        { name: 'gallery', page: './gallery.html' },
+        { name: 'about', page: './aboutus.html' },
+        { name: 'feedback', page: './feedback.html' },
+        { name: 'living room styles', page: './livingroom.html' },
+        { name: 'kitchen styles', page: './kitchen.html' },
+        { name: 'bedroom styles', page: './bedroom.html' },
+        { name: 'bathroom styles', page: './bathroom.html' },
+        { name: 'contemporary styles', page: './contemporarystyles.html' },
+        { name: 'elegant look styles', page: './elegantlookstyles.html' },
+        { name: 'furniture', page: './furniture.html' },
+        { name: 'kitchen', page: './productkitchen.html' },
+        { name: 'lightning', page: './lightning.html' },
+        { name: 'decor', page: './decor.html' },
+        { name: 'bathroom', page: './bathroom.html' },
+        { name: 'home', page: '../../index.html' }
+      ];
+
+      const matchedItems = items.filter(item => item.name.toLowerCase().includes(query));
+
+      if (matchedItems.length > 0) {
+        matchedItems.forEach(item => {
+          const li = document.createElement('li');
+          li.className = 'list-group-item';
+          li.innerHTML = `<a href="${item.page}" class="text-decoration-none">${item.name}</a>`;
+          searchResults.appendChild(li);
+        });
+      } else {
+        const li = document.createElement('li');
+        li.className = 'list-group-item text-danger';
+        li.textContent = 'No products found.';
+        searchResults.appendChild(li);
+      }
+    }
+  });
+</script>
+<!-- SEARCH JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('.button-group .button').on('click', function () {
+      $('.button-group .button').removeClass('active');
+      $(this).addClass('active');
+
+      var filterValue = $(this).attr('data-filter');
+
+      $('.gallery .item').each(function () {
+        if (filterValue === '*' || $(this).hasClass(filterValue.substring(1))) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+
+    $('.gallery .item img').on('click', function () {
+      var imageSrc = $(this).attr('src');
+      $('#modal-image').attr('src', imageSrc);
+      $('#imageModal').modal('show');
+    });
+
+    $('#modal-next').on('click', function () {
+      navigateImage('next');
+    });
+
+    $('#modal-prev').on('click', function () {
+      navigateImage('prev');
+    });
+
+    function navigateImage(direction) {
+      var currentImageSrc = $('#modal-image').attr('src');
+      var currentImage = $('.gallery .item img[src="' + currentImageSrc + '"]');
+      var newImage;
+
+      if (direction === 'next') {
+        newImage = currentImage.closest('.item').nextAll('.item:visible').first().find('img');
+      } else {
+        newImage = currentImage.closest('.item').prevAll('.item:visible').first().find('img');
+      }
+
+      if (newImage.length > 0) {
+        $('#modal-image').attr('src', newImage.attr('src'));
+      }
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const galleryLinks = document.querySelectorAll('.gallery-link');
+    const modalImage = document.getElementById('modal-image');
+    const imageModal = document.getElementById('imageModal');
+    let currentIndex = 0;
+    let imageSources = [];
+
+    galleryLinks.forEach((link, index) => {
+      imageSources.push(link.getAttribute('data-image'));
+      link.addEventListener('click', () => {
+        currentIndex = index;
+        modalImage.src = imageSources[currentIndex];
+      });
+    });
+
+    imageModal.addEventListener('hidden.bs.modal', () => {
+      modalImage.src = '';
+    });
+
+    document.getElementById('nextImage').addEventListener('click', function () {
+      currentIndex = (currentIndex + 1) % imageSources.length;
+      modalImage.src = imageSources[currentIndex];
+    });
+
+    document.getElementById('prevImage').addEventListener('click', function () {
+      currentIndex = (currentIndex - 1 + imageSources.length) % imageSources.length;
+      modalImage.src = imageSources[currentIndex];
+    });
+  });
+</script>
+<script src="../js/wishlistbathroom.js"></script>
+<script src="../js/wishlistbedroom.js"></script>
+<script src="../js/wishlistlivingroom.js"></script>
+<script src="../js/wishlistkitchen.js"></script>
+<script src="../js/wishlistelegantlookstyles.js"></script>
+<script src="../js/wishlistconyemporarystyle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+
+<!-- SCROLLUP JS -->
+<script src="../js/jquery.scrollUp.min.js"></script>
+<script>
+  $(function () {
+    $.scrollUp({
+      scrollImg: true,
+    });
+  });
+</script>
+
+
+</html>

@@ -1,0 +1,297 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+  --sb-track-color: #232E33;
+  --sb-thumb-color: #daa520;
+  --sb-size: 15px;
+}
+
+body::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 3px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 3px;
+  
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  body {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
+}
+body{
+    overflow-x: hidden;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* ADD TO CART ICON CSS */
+.cart-icon i {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+  }
+  
+  /* ADD TO CART ICON CSS */
+  
+  /* MEDIA QUERIES */
+  /* Extra Small Devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+    .carousel-caption img {
+      width: 420px;
+      height: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+    .designstyleheading {
+      font-size: large;
+    }
+  
+    .designers-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    
+  }
+  
+  /* Small Devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+    .carousel-caption img {
+      width: 420px;
+      height: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+    .designers-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+  
+  /* Medium Devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+    .carousel-caption img {
+      width: 420px;
+      height: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+    .designers-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+  
+  /* Large Devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+    .carousel-caption img {
+      width: 420px;
+      height: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+    .designers-list {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+  }
+  
+  /* Extra Large Devices (large desktops, 1200px) */
+  @media (min-width: 1200px) {
+  
+    .navbar-brand img {
+      width: 600px;
+      height: 190px;
+    }
+  
+    .carousel-caption img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  
+  }
+
+.form-container {
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    margin: 0 auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-container button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.form-container button:hover {
+    background-color: goldenrod;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* ADD TO CART ICON CSS */
+.cart-icon i {
+    font-size: 25px;
+    color: black;
+    cursor: pointer;
+  }
+  
+  /* ADD TO CART ICON CSS */
+  
+  /* MEDIA QUERIES */
+  /* Extra Small Devices (phones, less than 576px) */
+  @media (max-width: 575.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+  }
+  
+  /* Small Devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+  }
+  
+  /* Medium Devices (tablets, 768px and up) */
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  
+  }
+  
+  /* Large Devices (desktops, 992px and up) */
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-brand img {
+      width: 300px;
+      height: 100px;
+    }
+  
+    .navbar {
+      font-size: large;
+    }
+  }
+  
+  /* Extra Large Devices (large desktops, 1200px) */
+  @media (min-width: 1200px) {
+  
+    .navbar-brand img {
+      width: 600px;
+      height: 190px;
+    }
+  
+  }
