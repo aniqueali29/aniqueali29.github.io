@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Zara Therapy Clinic</title>
+  <!-- bootstrap cdn (css) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- font awesome icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+
+  <!------------- Navbar Start------------>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/img/logo.png" alt="logo">
+      </a>
+
+      <button class="navbar-toggler sidebar-toggler" type="button">
+        <i class="fas fa-bars"></i>
+      </button>
+      <!-- Keep the toggler and brand within the same container -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/products.html">Products</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Services <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+              <li><a class="dropdown-item" href="./HTML/services.html">Services</a></li>
+              <li><a class="dropdown-item" href="./HTML/medicalTherapy.html">Medical Therapy</a></li>
+              <li><a class="dropdown-item" href="./HTML/technicalTherapy.html">Technical Therapy</a></li>
+              <li><a class="dropdown-item" href="./HTML/beautyTherapy.html">Beauty Therapy</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/reservation.html">Reservation</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./HTML/contact.html">Contact</a>
+          </li>
+        </ul>
+        <!-- Register/SignIn and Logout options -->
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" id="auth-link">
+            <!-- Default state (when not logged in) -->
+            <a class="nav-link mx-2 text-light" href="./login.html"><i
+                class="fas fa-user-circle me-1"></i>Register/SignIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 text-light" href="./cart.html"><i class="fas fa-shopping-cart me-1"></i>
+            </a>
+          </li>
+
+          <li class="nav-item d-none" id="logout-link">
+            <!-- Logout state (when logged in) -->
+            <button class="Btn">
+
+              <div class="sign"><svg viewBox="0 0 512 512">
+                  <path
+                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                  </path>
+                </svg></div>
+
+              <div class="text"><a href="#" id="logout">Logout</a></div>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar Start -->
+  <div id="sidebar">
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./HTML/about.html">About</a></li>
+      <li><a href="./HTML/products.html">Products</a></li>
+      <li>
+        <a href="javascript:void(0);" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+        <ul class="submenu">
+          <li><a href="./HTML/services.html">Services</a></li>
+          <li><a href="./HTML/medicalTherapy.html">Medical Therapy</a></li>
+          <li><a href="./HTML/technicalTherapy.html">Technical Therapy</a></li>
+          <li><a href="./HTML/beautyTherapy.html">Beauty Therapy</a></li>
+        </ul>
+      </li>
+      <li><a href="./HTML/reservation.html">Reservation</a></li>
+      <li><a href="./HTML/gallery.html">Gallery</a></li>
+      <li><a href="./HTML/contact.html">Contact</a></li>
+      <!-- Register/SignIn and Logout options -->
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" id="auth-link">
+          <!-- Default state (when not logged in) -->
+          <a class="nav-link mx-2 text-light" href="./login.html"><i
+              class="fas fa-user-circle me-1"></i>Register/SignIn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link mx-2 text-light" href="./cart.html"><i class="fas fa-shopping-cart me-1"></i>
+          </a>
+        </li>
+        <li class="nav-item d-none" id="logout-link">
+          <!-- Logout state (when logged in) -->
+          <button class="Btn">
+
+            <div class="sign"><svg viewBox="0 0 512 512">
+                <path
+                  d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                </path>
+              </svg></div>
+
+            <div class="text"><a href="#" id="logout">Logout</a></div>
+          </button>
+        </li>
+      </ul>
+      <!-- Added Register link -->
+    </ul>
+  </div>
+  <!-- Sidebar End -->
+
+  <!------------- Navbar End ------------>
+
+  <!----------- Banner Start ---------->
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./assets/img/therapy.jpeg" class="d-block w-100" alt="Banner Image" />
+        <div class="carousel-caption d-block">
+          <h2 class="content" data-aos="fade-up">Begin Your Healing Journey</h2>
+          <h4 class="lead">
+            <b>Blending compassion with expertise to help you achieve optimal health.</b>
+          </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!----------- Banner End ---------->
+
+
+  <!----------- First Section Start ---------->
+
+  <section>
+    <div>
+      <h5 class="heading text-center mt-4 " data-aos="fade-bottom ">
+        "Explore our range of therapeutic services, meet our dedicated team of professionals,<br> and discover
+        how we can support your journey towards mental well-being and personal growth."
+      </h5>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center mb-3 mt-3">
+          <h1 data-aos="fade-up"> Why Therapy Is Important:</h1>
+        </div>
+      </div>
+      <div class="row list">
+        <div class="col-md-6 therapy_list" data-aos="fade-up">
+          <ul>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Mental Health Management </li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Emotional Support</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Personal Growth and Self-Discovery</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Improved Relationships</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Stress and Anxiety Reduction</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Crisis Intervention</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Behavioral Change</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Enhanced Coping Skills</li>
+            <li><i class="fa-sharp fa-solid fa-star"></i>Preventive Care</li>
+          </ul>
+        </div>
+        <div class="col-md-6 wtii">
+          <div class="head">
+            <img src="./assets/img/meet.jpg" data-aos="fade-left" height="300px" width="400px"
+              style="border-radius: 10px;" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!----------- First Section End ---------->
+
+  <!----------- Second Section Start ---------->
+
+  <section>
+    <h1 class="text-center mt-5" data-aos="fade-up">Features Of Zara Therapy Clinics
+    </h1>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="box" data-aos="fade-right">
+            <a class="card1">
+              <p><b>Wide Range Of Therapies</b></p>
+              <!-- <p class="small"></p> -->
+              <ul>
+                <li>Electrotherapy</li>
+                <li>Chiropractic Care</li>
+                <li>Psychotherapy</li>
+                <li>Laser skin Resurfacing</li>
+                <li>Visual Reality Therapy</li>
+                <p>And many more.</p>
+              </ul>
+              <div class="go-corner" href="#">
+                <div class="go-arrow">
+                  →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="col-md-4">
+          <div class="box" data-aos="fade-right">
+            <a class="card1">
+              <p><b>Qualified Professionals:</b></p>
+              <!-- <p class="small"></p> -->
+              <ul>
+                <li><i>Licensed Therapists:</i>Clinicians with appropriate license.</li>
+
+                <li><i>Psychologists:</i> Specialists in psychological assessment.</li>
+                <li><i>Counselors: </i>Professionals with training.</li>
+              </ul>
+              <div class="go-corner" href="#">
+                <div class="go-arrow">
+                  →
+                </div>
+              </div>
+
+            </a>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="col-md-4">
+          <div class="box" data-aos="fade-right">
+            <a class="card1">
+              <p><b>Modern Facilities</b></p>
+              <!-- <p class="small"></p> -->
+              <ul>
+                <li>Accessible Location.</li>
+                <li>Comfortable Therapy Rooms.</li>
+                <li>Confidential Setting.</li>
+                <li>Accessible Location.</li>
+                <li>Comfortable Therapy Rooms.</li>
+                <br>
+              </ul>
+              <div class="go-corner">
+                <div class="go-arrow">
+                  →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="col-md-4 mt-3">
+          <div class="box" data-aos="fade-left">
+            <a class="card1">
+              <p><b>Assessment and Diagnosis:</b></p>
+              <!-- <p class="small"></p> -->
+              <ul>
+                <li><i>Psychological Testing:</i> Comprehensive assessments to aid in diagnosis and
+                  treatment.</li>
+                <li><i>Behavioral Assessments:</i> Evaluations of behavior patterns and their impact on
+                  functioning.</li>
+
+              </ul>
+              <div class="go-corner">
+                <div class="go-arrow">
+                  →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="col-md-4 mt-3">
+          <div class="box" data-aos="fade-left">
+            <a class="card1">
+              <p><b>Customized Treatment Plans:</b></p>
+              <!-- <p class="small"></p> -->
+              <ul>
+                <li><i>Personalized Care:</i>Tailored treatment plans based on individual needs and
+                  goals.</li>
+                <li><i>Regular Progress Reviews: </i> Ongoing assessment and adjustment of treatment
+                  plans.</li>
+
+              </ul>
+              <div class="go-corner">
+                <div class="go-arrow">
+                  →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="col-md-4 mt-3">
+          <div class="box" data-aos="fade-left">
+            <a class="card1">
+              <p><b>Community Outreach:</b></p>
+              <!-- <p class="small"></p> -->
+              <ul>
+                <li><i>Workshops and Seminars: </i>Educational programs for the community.</li>
+                <li><i>Collaborations with Schools and Organizations: </i> Extending services to broader
+                  populations.</li>
+
+              </ul>
+              <div class="go-corner" href="#">
+                <div class="go-arrow">
+                  →
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!----------- Second Section End ---------->
+
+  <!----------- Mini Gallery Start ---------->
+
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12 mb-4 ">
+        <h1 class="text-center" data-aos="fade-up">Explore our recent Therapy moments.</h1>
+      </div>
+      <div class="col-md-12 container-gallery">
+        <div class="card_1"><img src="./assets/img/card-1-1.webp" alt=""></div>
+        <div class="card_1"><img src="./assets/img/card-1-2.jpg" alt=""></div>
+        <div class="card_1"><img src="./assets/img/card-1-3.jpg" alt=""></div>
+        <div class="card_1"><img src="./assets/img/card-1-4.jpg" alt=""></div>
+      </div>
+    </div>
+  </div>
+
+  <!----------- Mini Gallery End ---------->
+
+  <!----------- Cards  Start ---------->
+
+  <section>
+    <div class="container mt-5">
+      <div class="row" data-aos="zoom-out-up">
+        <div class="col-md-4">
+          <div class="cards-container">
+            <div class="cards">
+              <div class="card-details">
+                <p class="text-title text-center"><i>SERVICES</i></p>
+                <p class="text-body text-center">
+                  At our Therapy Clinic, we offer compassionate and effective mental health care for all
+                  ages. Our experienced therapists provide a range of services to support your emotional
+                  well-being and help you navigate life's challenges.
+                </p>
+              </div>
+              <button class="card-button"><a href="./HTML/services.html">More info</a></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cards-container">
+            <div class="cards">
+              <div class="card-details">
+                <p class="text-title text-center"><i>PRODUCTS</i></p>
+                <p class="text-body text-center">
+                  At our Therapy Clinic, we support your mental and emotional well-being with a range of
+                  curated products. Each item complements our therapeutic services, helping you maintain a
+                  balanced, healthy lifestyle.</p>
+              </div>
+              <button class="card-button"><a href="./HTML/products.html">More info</a></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="cards-container">
+            <div class="cards">
+              <div class="card-details">
+                <p class="text-title text-center"><i>RESERVATION</i></p>
+                <p class="text-body text-center">
+                  Booking a session at our Therapy Clinic is easy. Use our online system to schedule
+                  appointments with our experienced therapists. Reserve your session today to start your
+                  journey to better mental health.</p>
+              </div>
+              <button class="card-button"><a href="./HTML/reservation.html">More info</a></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!------------ Cards End ------------>
+
+  <!------------ Benefits Cards Start ------------>
+
+  <section>
+    <h1 class="text-center my-5" data-aos="fade-up">Therapy Benefits</h1>
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4" data-aos="zoom-out-up">
+          <div class="benefit-card">
+            <div class="card-body">
+              <i class="fas fa-heart icon"></i>
+              <h5 class="card-title">Emotional Health</h5>
+              <p class="card-text">Therapy helps improve emotional regulation, reduce stress, and enhance
+                overall emotional well-being.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-out-up">
+          <div class="benefit-card">
+            <div class="card-body">
+              <i class="fas fa-brain icon"></i>
+              <h5 class="card-title">Mental Health</h5>
+              <p class="card-text">Therapy addresses mental health issues such as anxiety, depression, and
+                PTSD, promoting mental wellness.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="benefit-card" data-aos="zoom-out-up">
+            <div class="card-body">
+              <i class="fas fa-dumbbell icon"></i>
+              <h5 class="card-title">Physical Health</h5>
+              <p class="card-text">Physical therapies and interventions can improve mobility, alleviate
+                pain, and support physical rehabilitation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4" data-aos="zoom-out-up">
+          <div class="benefit-card">
+            <div class="card-body">
+              <i class="fas fa-users icon"></i>
+              <h5 class="card-title">Relationships</h5>
+              <p class="card-text">herapy strengthens relationships by improving communication and
+                resolving conflicts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-out-up">
+          <div class="benefit-card">
+            <div class="card-body">
+              <i class="fas fa-cogs icon"></i>
+              <h5 class="card-title">Behavioral</h5>
+              <p class="card-text">Therapy helps modify harmful behaviors, develop coping strategies, and
+                encourage positive behavior changes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4" data-aos="zoom-out-up">
+          <div class="benefit-card">
+            <div class="card-body">
+              <i class="fas fa-seedling icon"></i>
+              <h5 class="card-title">Personal Growth</h5>
+              <p class="card-text">Therapy fosters self-awareness, personal development, and empowers
+                individuals to achieve their full potential.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!------------- Benefits Cards End ------------->
+
+
+  <!------------- Footer Start ------------->
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-white mt-5" style="background: linear-gradient(135deg, #5a6781, #2e3a4b);">
+    <div class="container-fluid p-4">
+      <!--Grid row-->
+      <div class="row my-4">
+
+        <!--Logo and Clinic Info-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+          <div
+            class="rounded-circle bg-dark shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto animate_animated animate_fadeIn"
+            style="width: 150px; height: 150px;">
+            <img src="./assets/img/logo.png" height="70" alt="Zara Therapy Clinic Logo" loading="lazy" />
+          </div>
+          <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+            Zara Therapy Clinic</h5>
+          <p class="text-white-50" style="font-family: 'Open Sans', sans-serif;">Empowering you to heal and
+            thrive in a supportive environment.</p>
+          <ul class="list-unstyled d-flex flex-row justify-content-center">
+            <li>
+              <a class="text-white px-2" target="_blank" href="https://www.facebook.com/">
+                <i class="fab fa-facebook-square fa-lg icons"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white px-2 " target="_blank" href="https://www.instagram.com/">
+                <i class="fab fa-instagram fa-lg icons"></i>
+              </a>
+            </li>
+            <li>
+              <a class="text-white ps-2" target="_blank" href="https://www.youtube.com/">
+                <i class="fab fa-youtube fa-lg icons"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!--Therapy Services-->
+        <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0 text-sm-center">
+          <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">Our
+            Services</h5>
+          <ul class="list-unstyled text-sm-center">
+            <li class="mb-2">
+              <a href="../HTML/services.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Services
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="../HTML/medical-services.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Medical Therapy
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="../HTML/technical-services.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Technical Therapy
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="../HTML/beauty-services.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Beauty Therapy
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <!--Resources-->
+        <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+            Resources</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2">
+              <a href="../HTML/reservation.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Reservation
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="../HTML/reservation.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Client Testimonials
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="../HTML/contact.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>FAQs
+              </a>
+            </li>
+            <li class="mb-2">
+              <a href="../HTML/contact.html" class="text-white d-flex align-items-center"
+                style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Contact Support
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!--Contact Information-->
+        <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+            Contact Us</h5>
+          <ul class="list-unstyled size">
+            <li class="mb-2 text-light">
+              <p style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-map-marker-alt pe-2"></i><a
+                  href="https://maps.google.com/?q=123+Therapy+St,+Wellness+City" class="text-light" target="_blank">123
+                  Therapy St, Wellness City</a>
+              </p>
+            </li>
+            <li class="mb-2 text-light">
+              <p style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-phone pe-2"></i><a href="tel:+1234567890" class="text-light">+92 3067127890</a>
+              </p>
+            </li>
+            <li class="mb-2 text-light">
+              <p style="font-family: 'Open Sans', sans-serif;">
+                <i class="fas fa-envelope pe-2"></i><a href="mailto:contact@zara-therapy.com"
+                  class="text-light">contact@zara-therapy-clinic.com</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <!--Grid row-->
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2024 Zara Therapy Clinic. All Rights Reserved.
+    </div>
+  </footer>
+  <!-- End of Footer -->
+
+  <!------------- Footer End ------------->
+
+
+  <!------------- Scroll Bar Start ------------->
+  <a href="#" class="scroll-up" id="scrollUp">
+    <img src="./assets/img/icon-top.png" alt="Scroll to Top" />
+</a>
+  <!------------- Scroll Bar End ------------->
+
+
+
+  <!-- bootstrap cdn (js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="./js/login.js"></script>
+  <script src="./js/navbar.js"></script>
+  <script src="./js/scrollicon.js"></script>
+  <script>
+    $(document).ready(function () {
+      AOS.init({
+        duration: 1200, // Duration of the animation
+      });
+    });
+  </script>
+</body>
+
+</html>

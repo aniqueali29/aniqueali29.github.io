@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation - Zara Therapy Clinic</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-ygb5PPV2WsbBvQmVSfAR5m29K7U0Azp2jxH5qYm7aF4EwPsmfL6HVjblA5O7FQ9x" crossorigin="anonymous">
+    <!-- Font -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+          <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <!-- font awesome icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- Remix Icon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- SweetAlert2 CSS (For beautiful alert messages) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="../css/reservation.css">
+    <style>
+        /* Additional styling for the image circles */
+        .carousel-item img {
+            border-radius: 50%;
+            border: 5px solid rgb(7, 156, 164);
+            /* Border color matches star color */
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            object-fit: cover;
+            /* Ensures the image covers the entire circle */
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            /* Adds a subtle shadow */
+            transition: transform 0.3s ease;
+            /* Smooth animation for hover effect */
+        }
+
+        /* Hover effect for the image circles */
+        .carousel-item img:hover {
+            transform: scale(1.05);
+            /* Slightly enlarges the image on hover */
+        }
+
+        /* Styling for the review text and stars */
+        .carousel-item h5 {
+            font-family: 'Agbalumo', sans-serif;
+            /* Matches the header font */
+            font-size: 1.25rem;
+            color: #07473a;
+            /* Darker shade for the name */
+        }
+
+        .carousel-item p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #666;
+            /* Grayish color for better readability */
+        }
+
+        .carousel-item ul li {
+            font-size: 1.5rem;
+        }
+
+        .carousel-item ul li i {
+            margin: 0 2px;
+        }
+
+        /* Carousel control styles */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(50%);
+        }
+    </style>
+
+    <!-- HTML structure remains the same -->
+
+</head>
+
+<body>
+
+    <!------------- Navbar Start------------>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/img/logo.png" alt="logo">
+            </a>
+
+            <button class="navbar-toggler sidebar-toggler" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Keep the toggler and brand within the same container -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" href="./services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="./medicalTherapy.html">Medical Therapy</a></li>
+                            <li><a class="dropdown-item" href="./technicalTherapy.html">Technical Therapy</a></li>
+                            <li><a class="dropdown-item" href="./beautyTherapy.html">Beauty Therapy</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./reservation.html">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+                <!-- Register/SignIn and Logout options -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" id="auth-link">
+                        <!-- Default state (when not logged in) -->
+                        <a class="nav-link mx-2 text-light" href="./login.html"><i
+                                class="fas fa-user-circle me-1"></i>Register/SignIn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-light" href="./cart.html"><i class="fas fa-shopping-cart me-1"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none" id="logout-link">
+                        <!-- Logout state (when logged in) -->
+                        <button class="Btn">
+
+                            <div class="sign"><svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                    </path>
+                                </svg></div>
+
+                            <div class="text"><a href="#" id="logout">Logout</a></div>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar Start -->
+    <div id="sidebar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li>
+                <a href="javascript:void(0);" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                    <li><a class="dropdown-item" href="./services.html">Services</a></li>
+                    <li><a class="dropdown-item" href="./medical-services.html">Medical Therapy</a></li>
+                    <li><a class="dropdown-item" href="./technical-services.html">Technical Therapy</a></li>
+                    <li><a class="dropdown-item" href="./beauty-services.html">Beauty Therapy</a></li>
+                </ul>
+            </li>
+            <li><a href="./reservation.html">Reservation</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <!-- Register/SignIn and Logout options -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" id="auth-link">
+                    <!-- Default state (when not logged in) -->
+                    <a class="nav-link mx-2 text-light" href="./login.html"><i
+                            class="fas fa-user-circle me-1"></i>Register/SignIn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2 text-light" href="./cart.html"><i class="fas fa-shopping-cart me-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none" id="logout-link">
+                    <!-- Logout state (when logged in) -->
+                    <button class="Btn">
+
+                        <div class="sign"><svg viewBox="0 0 512 512">
+                                <path
+                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                </path>
+                            </svg></div>
+
+                        <div class="text"><a href="#" id="logout">Logout</a></div>
+                    </button>
+                </li>
+            </ul>
+            <!-- Added Register link -->
+        </ul>
+    </div>
+    <!-- Sidebar End -->
+
+    <!------------- Navbar End ------------>
+
+
+
+
+    <!------------- Background Start ------------>
+
+    <div class="background">
+
+        <!------------- Banner Start ------------>
+
+        <div class="image-container">
+            <img src="../assets/img/reservation/reservation-banner.jpg" height="500px" width="100%" alt="image">
+            <div class="content">
+                <h2>Reserve Your Appointment</h2>
+            </div>
+        </div>
+
+        <!------------- Banner End ------------>
+
+
+        <!------------- Form Section Start ------------>
+
+        <div class="container reserve mt-5 mb-4">
+            <div class="row">
+                <div class="col-md-6 justify-content-center video">
+                    <video autoplay muted loop preload="auto" class="video-2 img-fluid">
+                        <source src="../assets/video/reservation-0.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="col-md-6 form-con">
+                    <div class="form-container">
+                        <h2>Therapy Reservation</h2>
+                        <form id="reservationForm">
+                            <div class="row mt-3">
+                                <div class="col-md-6 form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" name="name" readonly required>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" readonly required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="tel" placeholder="Enter Your Phone" id="phone" name="phone" required>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" id="therapytype" placeholder="Click here & Choose Therapy Type"
+                                        name="therapytype" readonly required>
+                                </div>
+
+                                <div class="col-md-6 form-group">
+                                    <input type="text" id="chooseplan" placeholder="Click here & Choose Plan"
+                                        name="chooseplan" readonly required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-group">
+                                    <input type="text" id="date" placeholder="Click here & Choose Day" name="date"
+                                        required readonly>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="text" id="time" placeholder="Click here & Choose Time" name="time"
+                                        required readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <textarea id="comments" placeholder="If you've any message tell us...." name="comments"
+                                    rows="4"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-form">Reserve Now</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!------------- Form Section End ------------>
+        <!------------- Packages Section Start ------------>
+        <div class="container" id="packages-section">
+            <div class="row">
+                <div class="col-md-12 mt-5 mb-4">
+                    <h1 class="text-center">Explore Our Packages</h1>
+                </div>
+
+                <!-- Medical Plan -->
+                <div class="col-md-4">
+                    <div class="plan">
+                        <div class="inner">
+                            <span class="pricing">
+                                <span>
+                                    $149 <small>/ m</small>
+                                </span>
+                            </span>
+                            <div class="in">
+                                <p class="title">Essential Wellness Plan</p>
+                                <p class="info">Perfect for maintaining your mental and physical health with the help of
+                                    core
+                                    medical services.</p>
+                                <ul class="features">
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-stethoscope"></i>
+                                        </span>
+                                        <span class="text-dark">4 Therapy Sessions/Month</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-calendar-check"></i>
+                                        </span>
+                                        <span class="text-dark">Monthly Check-Ups</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-heartbeat"></i>
+                                        </span>
+                                        <span class="text-dark">Basic Health Screenings</span>
+                                    </li>
+                                </ul>
+                                <div class="action">
+                                    <button class="btn btn-primary choose-package-btn"
+                                        data-plan="Essential Wellness Plan">Choose Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Plan -->
+                <div class="col-md-4">
+                    <div class="plan">
+                        <div class="inner">
+                            <span class="pricing">
+                                <span>
+                                    $249 <small>/ m</small>
+                                </span>
+                            </span>
+                            <div class="in">
+
+                                <p class="title">Comprehensive Care Plan</p>
+                                <p class="info">Ideal for those needing intensive therapy and technological integration
+                                    for treatment.</p>
+                                <ul class="features">
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-laptop-medical"></i>
+                                        </span>
+                                        <span class="text-dark">8 Therapy Sessions/Month</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-cogs"></i>
+                                        </span>
+                                        <span class="text-dark">Technology-Enhanced Therapy</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-video"></i>
+                                        </span>
+                                        <span class="text-dark">Access to Online Therapy</span>
+                                    </li>
+                                </ul>
+                                <div class="action">
+                                    <button class="btn btn-primary choose-package-btn"
+                                        data-plan="Comprehensive Care Plan">Choose Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beauty Plan -->
+                <div class="col-md-4">
+                    <div class="plan">
+                        <div class="inner">
+                            <span class="pricing">
+                                <span>
+                                    $299 <small>/ m</small>
+                                </span>
+                            </span>
+                            <div class="in">
+
+                                <p class="title">Premium Wellness Plan</p>
+                                <p class="info">Best suited for clients seeking complete mind-body wellness with beauty
+                                    services included.</p>
+                                <ul class="features">
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-spa"></i>
+                                        </span>
+                                        <span class="text-dark">12 Therapy Sessions/Month</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fas fa-apple-alt"></i>
+                                        </span>
+                                        <span class="text-dark">Holistic Wellness Coaching</span>
+                                    </li>
+                                    <li>
+                                        <span class="icon">
+                                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                        </span>
+                                        <span class="text-dark">Personalized Beauty Treatments</span>
+                                    </li>
+                                </ul>
+                                <div class="action">
+                                    <button class="btn btn-primary choose-package-btn"
+                                        data-plan="Premium Wellness Plan">Choose Plan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!------------- Packages Section End ------------>
+
+
+
+    </div>
+    <!------------- Background End ------------>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <h1 class="text-center mt-5">WHAT OUR CLIENTS SAYS</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonials Starts -->
+    <!-- Carousel section -->
+    <div class="container mb-5">
+        <div class="header text-center mt-3">
+        </div>
+        <div id="carouselExampleControls" class="carousel slide text-center carousel-dark"
+            data-bs-target="#carouselExampleControls">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="rounded-circle shadow-1-strong mb-4" src="../assets/img/reservation/testimonial-1.webp"
+                        alt="" style="width: 150px;" />
+                    <div class=" d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <h5 class="mb-3">Emily R.</h5>
+                            <p class="text-muted fw-bold">
+                                <i class="fas fa-quote-left pe-2"></i> "The atmosphere at Zara Therapy Clinic is so
+                                calming, and the staff makes you feel at ease from the moment you walk in. My therapist
+                                has been a fantastic guide on my journey to better mental health."
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fa-regular fa-star" style="color: rgb(7, 156, 164);"></i></li>
+
+                    </ul>
+                </div>
+                <div class="carousel-item">
+                    <img class="rounded-circle shadow-1-strong mb-4" src="../assets/img/reservation/testimonial-2.jpg"
+                        alt="" style="width: 150px;" />
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <h5 class="mb-3">David K.</h5>
+
+                            <p class="text-muted fw-bold">
+                                <i class="fas fa-quote-left pe-2"></i> "Zara Therapy Clinic provided me with the tools
+                                and support I needed to navigate a difficult time in my life. The therapists are
+                                knowledgeable and compassionate, and I always feel heard during our sessions."
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="far fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+
+                </div>
+                <div class="carousel-item">
+                    <img class="rounded-circle shadow-1-strong mb-4" src="../assets/img/reservation/testimonial-3.jpg"
+                        alt="" style="width: 150px;" />
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <h5 class="mb-3">Anna Smith</h5>
+
+                            <p class="text-muted fw-bold">
+                                <i class="fas fa-quote-left pe-2"></i> The level of care and attention at Zara Therapy
+                                Clinic is exceptional. I felt comfortable and supported throughout my therapy sessions.
+                                Highly recommend this place for anyone seeking help."
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fa-regular fa-star-half-stroke" style="color:rgb(7, 156, 164);"></i></li>
+
+                    </ul>
+                </div>
+                <div class="carousel-item">
+                    <img class="rounded-circle shadow-1-strong mb-4" src="../assets/img/reservation/testimonial-4.jpg"
+                        alt="" style="width: 150px;" />
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <h5 class="mb-3">Michael J.</h5>
+
+                            <p class="text-muted fw-bold">
+                                <i class="fas fa-quote-left pe-2"></i> "I was hesitant to start therapy, but Zara
+                                Therapy Clinic made the process so easy and welcoming. My therapist helped me work
+                                through issues I didn't even realize I had. I'm grateful for their guidance."
+                            </p>
+
+                        </div>
+                    </div>
+                    <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="far fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                    </ul>
+                </div>
+                <div class="carousel-item">
+                    <img class="rounded-circle shadow-1-strong mb-4" src="../assets/img/reservation/testimonial-5.jpg"
+                        alt="" style="width: 150px;" />
+                    <div class="d-flex justify-content-center">
+                        <div class="col-lg-8">
+                            <h5 class="mb-3">Olivia T.</h5>
+
+                            <p class="text-muted fw-bold">
+                                <i class="fas fa-quote-left pe-2"></i> "I've been to several therapists, but none
+                                compare to the care I received at Zara Therapy Clinic. They truly listen and provide
+                                actionable advice. My anxiety has significantly decreased since starting here."
+                            </p>
+                        </div>
+                    </div>
+                    <ul class="list-unstyled d-flex justify-content-center text-warning mb-0">
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color: rgb(7, 156, 164);"></i></li>
+                        <li><i class="fas fa-star fa-solid" style="color:rgb(7, 156, 164)"></i></li>
+                        <li><i class="far fa-star fa-solid" style="color: rgb(7, 156, 164)"></i></li>
+                    </ul>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- Carousel-section-end -->
+    <!-- Testimonials Ends -->
+    </div>
+    <!------------- Footer Start ------------->
+    <br>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white mt-5"
+        style="background: linear-gradient(135deg,  #355b7de8, #355b7d);">
+        <div class="container-fluid p-4">
+            <!--Grid row-->
+            <div class="row my-4">
+
+                <!--Logo and Clinic Info-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+                    <div class="rounded-circle bg-dark shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto animate_animated animate_fadeIn"
+                        style="width: 150px; height: 150px;">
+                        <img src="../assets/img/logo.png" height="70" alt="Zara Therapy Clinic Logo" loading="lazy" />
+                    </div>
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+                        Zara Therapy Clinic</h5>
+                    <p class="text-white-50" style="font-family: 'Open Sans', sans-serif;">Empowering you to heal and
+                        thrive in a supportive environment.</p>
+                    <ul class="list-unstyled d-flex flex-row justify-content-center">
+                        <li>
+                            <a class="text-white px-2" target="_blank" href="https://www.facebook.com/">
+                                <i class="fab fa-facebook-square fa-lg icons"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white px-2 " target="_blank" href="https://www.instagram.com/">
+                                <i class="fab fa-instagram fa-lg icons"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white ps-2" target="_blank" href="https://www.youtube.com/">
+                                <i class="fab fa-youtube fa-lg icons"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Therapy Services-->
+                <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0 text-sm-center">
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">Our
+                        Services</h5>
+                    <ul class="list-unstyled text-sm-center">
+                        <li class="mb-2">
+                            <a href="./services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Services
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./medical-services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Medical Therapy
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./technical-services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Technical Therapy
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./beauty-services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Beauty Therapy
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <!--Resources-->
+                <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+                        Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="./reservation.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Reservation
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./reservation.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Client Testimonials
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./contact.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>FAQs
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./contact.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Contact Support
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Contact Information-->
+                <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+                        Contact Us</h5>
+                    <ul class="list-unstyled size">
+                        <li class="mb-2 text-light">
+                            <p style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-map-marker-alt pe-2"></i><a
+                                    href="https://maps.google.com/?q=123+Therapy+St,+Wellness+City" class="text-light"
+                                    target="_blank">123 Therapy St, Wellness City</a>
+                            </p>
+                        </li>
+                        <li class="mb-2 text-light">
+                            <p style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-phone pe-2"></i><a href="tel:+1234567890" class="text-light">+92
+                                    3067127890</a>
+                            </p>
+                        </li>
+                        <li class="mb-2 text-light">
+                            <p style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-envelope pe-2"></i><a href="mailto:contact@zara-therapy.com"
+                                    class="text-light">contact@zara-therapy-clinic.com</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--Grid row-->
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Zara Therapy Clinic. All Rights Reserved.
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!------------- Footer End ------------->
+
+
+
+    <!-- Therapy Type Selection Modal -->
+    <div class="modal fade" id="therapyModal" tabindex="-1" aria-labelledby="therapyModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="therapyModalLabel">Select a Therapy Type</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="therapyOptions" class="list-group">
+                        <!-- Time options will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Date Selection Modal -->
+    <div class="modal fade" id="dateModal" tabindex="-1" aria-labelledby="dateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="dateModalLabel">Select a Date</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="dateOptions" class="list-group">
+                        <!-- Date options will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Selection Modal -->
+    <div class="modal fade" id="timeModal" tabindex="-1" aria-labelledby="timeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="timeModalLabel">Select a Time</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="timeOptions" class="list-group">
+                        <!-- Time options will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!------------- Scroll Bar Start ------------->
+  <a href="#" class="scroll-up" id="scrollUp">
+    <img src="../assets/img/icon-top.png" alt="Scroll to Top" />
+</a>
+  <!------------- Scroll Bar End ------------->
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz4fnFO9gybBMAKZf6TTARFfEKh/Jwr5v+PvG+91T9ggmYvC7K9Euh3Kz9"
+        crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const packageButtons = document.querySelectorAll(".choose-package-btn");
+
+            packageButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const selectedPlan = this.getAttribute("data-plan");
+
+                    Swal.fire({
+                        title: 'Plan Selected!',
+                        text: `You have selected the ${selectedPlan} plan.`,
+                        icon: 'success',
+                        confirmButtonText: 'Continue',
+                        customClass: {
+                            title: 'swal-title',
+                            content: 'swal-content',
+                            confirmButton: 'swal-confirm-button'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Here you can add logic to redirect to payment gateway or further process the selected plan.
+                            console.log(`Proceed with ${selectedPlan} plan.`);
+                        }
+                    });
+                });
+            });
+        });
+
+
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const choosePlanField = document.getElementById('chooseplan');
+            const packageButtons = document.querySelectorAll('.choose-package-btn');
+
+            // Scroll to packages section when "Choose Plan" field is clicked
+            choosePlanField.addEventListener('click', function () {
+                document.querySelector('#packages-section').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Update the "Choose Plan" field when a package is selected
+            packageButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const plan = this.getAttribute('data-plan');
+                    choosePlanField.value = plan;
+                    // Scroll back to the form section
+                    document.querySelector('.form-container').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const availableSlots = {
+                'Monday': ['08:00 to 10:00 (AM)', '10:00 to 12:00 (AM)'],
+                'Wednesday': ['08:00 to 10:00 (AM)', '10:00 to 12:00 (AM)'],
+                'Friday': ['10:00 to 12:00 (AM)', '4:00 to 6:00 (PM)']
+            };
+
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+
+            const dateModal = new bootstrap.Modal(document.getElementById('dateModal'));
+            const timeModal = new bootstrap.Modal(document.getElementById('timeModal'));
+
+            const dateOptions = document.getElementById('dateOptions');
+            const timeOptions = document.getElementById('timeOptions');
+
+            dateInput.addEventListener('click', function () {
+                dateOptions.innerHTML = '';
+                const dates = Object.keys(availableSlots);
+                dates.forEach(date => {
+                    const dateOption = document.createElement('button');
+                    dateOption.classList.add('list-group-item', 'list-group-item-action');
+                    dateOption.textContent = date;
+                    dateOption.addEventListener('click', function () {
+                        dateInput.value = date;
+                        timeInput.value = ''; // Clear time input if date changes
+                        dateModal.hide();
+                    });
+                    dateOptions.appendChild(dateOption);
+                });
+                dateModal.show();
+            });
+
+            timeInput.addEventListener('click', function () {
+                const selectedDate = dateInput.value;
+                if (!selectedDate) {
+                    Swal.fire({
+                        title: 'Date Required',
+                        text: 'Please select a date first',
+                        icon: 'warning',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            title: 'swal-title',
+                            content: 'swal-content',
+                            confirmButton: 'swal-confirm-button'
+                        }
+                    });
+                    return;
+                }
+                timeOptions.innerHTML = '';
+                const times = availableSlots[selectedDate];
+                times.forEach(time => {
+                    const timeOption = document.createElement('button');
+                    timeOption.classList.add('list-group-item', 'list-group-item-action');
+                    timeOption.textContent = time;
+                    timeOption.addEventListener('click', function () {
+                        timeInput.value = time;
+                        timeModal.hide();
+                    });
+                    timeOptions.appendChild(timeOption);
+                });
+                timeModal.show();
+            });
+        });
+
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const availableSlots = ['Physical Therapy', 'Occupational Therapy', 'Speech Therapy', 'Psychotherapy']; //Change it according to the Types
+
+            const therapyInput = document.getElementById('therapytype');
+            const therapyModal = new bootstrap.Modal(document.getElementById('therapyModal'));
+            const therapyOptions = document.getElementById('therapyOptions');
+
+            therapyInput.addEventListener('click', function () {
+                therapyOptions.innerHTML = '';
+                availableSlots.forEach(day => {
+                    const therapyOption = document.createElement('button');
+                    therapyOption.classList.add('list-group-item', 'list-group-item-action');
+                    therapyOption.textContent = day;
+                    therapyOption.addEventListener('click', function () {
+                        therapyInput.value = day;
+                        therapyModal.hide();
+                    });
+                    therapyOptions.appendChild(therapyOption);
+                });
+                therapyModal.show();
+            });
+        });
+
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#reservationForm').on('submit', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Retrieve form values
+                const name = $('#name').val();
+                const email = $('#email').val();
+                const phone = $('#phone').val();
+                const therapytype = $('#therapytype').val();
+                const chooseplan = $('#chooseplan').val(); // Retrieve the selected chooseplan
+                const date = $('#date').val();
+                const time = $('#time').val();
+                const comments = $('#comments').val();
+
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                const phonePattern = /^\d{11}$/; // Regex pattern for 11-digit phone number
+
+                // Check if any field is empty
+                if (!name || !email || !phone || !therapytype || !chooseplan || !date || !time || !comments) {
+                    Swal.fire(
+                        'Incomplete Form',
+                        'Please fill all the fields before submitting.',
+                        'warning'
+                    );
+                    return; // Prevent further execution
+                }
+
+                // Validate email format
+                if (!emailPattern.test(email)) {
+                    Swal.fire(
+                        'Invalid Email',
+                        'Please enter a valid email address.',
+                        'error'
+                    );
+                    return; // Prevent further execution
+                }
+
+                // Validate that name field does not contain an email address
+                if (emailPattern.test(name)) {
+                    Swal.fire(
+                        'Invalid Name',
+                        'The name field should not contain an email address.',
+                        'error'
+                    );
+                    return; // Prevent further execution
+                }
+
+                // Validate phone number format
+                if (!phonePattern.test(phone)) {
+                    Swal.fire(
+                        'Invalid Phone Number',
+                        'Please enter a valid 11-digit phone number.',
+                        'error'
+                    );
+                    return; // Prevent further execution
+                }
+
+                // If all validations pass, proceed with form submission
+                // Use SweetAlert for a beautiful alert
+                Swal.fire({
+                    title: 'Reservation Successful!',
+                    html: `
+                    <p>Name: ${name}</p>
+                    <p>Email: ${email}</p>
+                    <p>Phone: ${phone}</p>
+                    <p>Therapy Type: ${therapytype}</p>
+                    <p>Choose Plan: ${chooseplan}</p>
+                    <p>Date: ${date}</p>
+                    <p>Time: ${time}</p>
+                    <p>Comments: ${comments}</p>
+                `,
+                    icon: 'success'
+                }).then(() => {
+                    // Reload the page after showing the alert
+                    location.reload();
+                });
+            });
+        });
+    </script>
+
+    <script src="../js/reservation.js"></script>
+    <script src="../js/navbar.js"></script>
+    <script src="../js/scrollicon.js"></script>
+
+
+</body>
+
+</html>

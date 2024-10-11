@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap cdn (css) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+          <!-- Favicon -->
+  <link rel="shortcut icon" href="../assets/img/favicon.png" type="image/x-icon">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/services.css">
+    <title>Services - Zara Therapy Clinic</title>
+</head>
+
+<body>
+
+    <!------------- Navbar Start------------>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="../assets/img/logo.png" alt="logo">
+            </a>
+
+            <button class="navbar-toggler sidebar-toggler" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Keep the toggler and brand within the same container -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./products.html">Products</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Services <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item active" href="./services.html">Services</a></li>
+                            <li><a class="dropdown-item" href="./medical-services.html">Medical Therapy</a></li>
+                            <li><a class="dropdown-item" href="./technical-services.html">Technical Therapy</a></li>
+                            <li><a class="dropdown-item" href="./beauty-services.html">Beauty Therapy</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./reservation.html">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                </ul>
+                <!-- Register/SignIn and Logout options -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item" id="auth-link">
+                        <!-- Default state (when not logged in) -->
+                        <a class="nav-link mx-2 text-light" href="./login.html"><i
+                                class="fas fa-user-circle me-1"></i>Register/SignIn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 text-light" href="./cart.html"><i class="fas fa-shopping-cart me-1"></i>
+                        </a>
+                    </li>
+
+                    <li class="nav-item d-none" id="logout-link">
+                        <!-- Logout state (when logged in) -->
+                        <button class="Btn">
+
+                            <div class="sign"><svg viewBox="0 0 512 512">
+                                    <path
+                                        d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                    </path>
+                                </svg></div>
+
+                            <div class="text"><a href="#" id="logout">Logout</a></div>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Sidebar Start -->
+    <div id="sidebar">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./products.html">Products</a></li>
+            <li>
+                <a href="javascript:void(0);" class="dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                    <li><a class="dropdown-item" href="./services.html">Services</a></li>
+                    <li><a class="dropdown-item" href="./medical-services.html">Medical Therapy</a></li>
+                    <li><a class="dropdown-item" href="./technical-services.html">Technical Therapy</a></li>
+                    <li><a class="dropdown-item" href="./beauty-services.html">Beauty Therapy</a></li>
+                </ul>
+            </li>
+            <li><a href="./reservation.html">Reservation</a></li>
+            <li><a href="./gallery.html">Gallery</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <!-- Register/SignIn and Logout options -->
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" id="auth-link">
+                    <!-- Default state (when not logged in) -->
+                    <a class="nav-link mx-2 text-light" href="./login.html"><i
+                            class="fas fa-user-circle me-1"></i>Register/SignIn</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mx-2 text-light" href="./cart.html"><i class="fas fa-shopping-cart me-1"></i>
+                    </a>
+                </li>
+                <li class="nav-item d-none" id="logout-link">
+                    <!-- Logout state (when logged in) -->
+                    <button class="Btn">
+
+                        <div class="sign"><svg viewBox="0 0 512 512">
+                                <path
+                                    d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z">
+                                </path>
+                            </svg></div>
+
+                        <div class="text"><a href="#" id="logout">Logout</a></div>
+                    </button>
+                </li>
+            </ul>
+            <!-- Added Register link -->
+        </ul>
+    </div>
+    <!-- Sidebar End -->
+
+    <!------------- Navbar End ------------>
+
+
+    <div class="image-container">
+        <img src="../assets/img/services/bg-3.jpg" width="100%" height="500px" class="img-fluid" alt="">
+        <div class="content">
+            <h2 class="heading">We Empower Meaningful Change</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center mt-3" data-aos="fade-right">EXPLORE OUR SERVICES</h1>
+                <p class="text-center mt-3" style="font-family:times; font-size: 22px;">
+                    Welcome to Zara Therapy Clinic, where your well-being is our top priority. At Zara Therapy Clinic,
+                    we offer a comprehensive range of therapeutic services designed to support your mental, emotional,
+                    and physical health.</p>
+            </div>
+        </div>
+    </div>
+    <div class="card-container">
+        <div class="row mt-5">
+            <!-- Medical Service Card -->
+            <div class="col-md-4" data-aos="zoom-out-down" data-aos-duration="1200">
+                <div class="card1">
+                    <div class="card-icon">🩺</div>
+                    <div class="card-title">Medical Services</div>
+                    <div class="card-description">
+                        <p><strong><i>Full Health Checkups:</i></strong><br> Thorough evaluations including physical
+                            exams, comprehensive lab tests, and personalized health plans to monitor overall well-being.
+                        </p>
+                        <p><strong><i>Specialist Consultations:</i></strong><br> Expert insights and tailored treatments
+                            from specialists in cardiology, neurology, and dermatology.</p>
+                        <!-- <p><strong><i>Advanced Diagnostic Imaging:</i></strong>  -->
+                        <!-- Accurate diagnostics using MRI, CT scans, and ultrasound for detailed, precise and reliable <br> health insights.</p> -->
+                        <!-- <p><strong><i>Preventive Care Programs:</i></strong> <br>Custom plans for lifestyle changes, screenings, and early intervention to support long-term health.</p> -->
+                    </div>
+                    <button type="button" class="btn btn-outline-info"><a href="../HTML/medical-services.html">More Info</a></button>
+                </div>
+            </div>
+            <!-- Technical Service Card -->
+            <div class="col-md-4" data-aos="zoom-in-down" data-aos-duration="1200">
+                <div class="card1">
+                    <div class="card-icon">💻</div>
+                    <div class="card-title">Technical Services</div>
+                    <div class="card-description">
+                        <p><strong><i>Teletherapy Platform Solutions:</i></strong> Secure, user-friendly platforms for
+                            seamless
+                            remote therapy sessions, ensuring accessibility and confidentiality.</p>
+                        <p><strong><i>Patient Management Systems:</i></strong> Customized software for efficient
+                            client record management, improving organization and accessibility.</p>
+                        <!-- <p><strong><i>Data Security Compliance:</i></strong> <br>HIPAA-compliant systems for -->
+                        <!-- safeguarding sensitive client information and ensuring regulatory compliance.</p> -->
+                        <!-- <p><strong> <i>Digital Therapy  Applications:</i></strong> Specialized tools for mood tracking -->
+                        <!-- and progress monitoring to support effective therapy practices.</p> -->
+                    </div>
+                    <button type="button" class="btn btn-outline-info"><a href="../HTML/technical-services.html">More Info</a></button>
+                </div>
+            </div>
+            <!-- Beauty Service Card -->
+            <div class="col-md-4" data-aos="zoom-out-down" data-aos-duration="1200">
+                <div class="card1">
+                    <div class="card-icon">💄</div>
+                    <div class="card-title">Beauty Services</div>
+                    <div class="card-description">
+                        <p><strong><i>Personalized Skincare Treatments:</i></strong><br>Tailored solutions for aging,
+                            acne, and pigmentation with advanced techniques and top-quality products.</p>
+                        <p><strong><i>Laser Therapy:</i></strong><br> Precision treatments using advanced laser
+                            technology to address various skin concerns and enhance appearance.</p>
+                        <!-- <p><strong><i>Cosmetic Surgeries:</i></strong><br>Expert procedures for aesthetic enhancements, including facial and body surgeries designed to achieve your desired look.</p> -->
+                        <!-- <p><strong><i>Relaxation & Wellness Therapies:</i></strong> Facials, massages, and body scrubs for enhanced appearance and relaxation. </p> -->
+                    </div>
+                    <button type="button" class="btn btn-outline-info"><a href="../HTML/beauty-services.html">More Info</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="values-container mt-5">
+        <h1 class="text-center" data-aos="fade-left">WHAT WE VALUE MOST FOR OUR CLIENTS</h1>
+        <div class="card-container">
+            <div class="row" data-aos="zoom-out-down" data-aos-duration="1200">
+                <div class="col-md-4" >
+                    <!-- Compassion Value Card -->
+                    <div class="cards">
+                        <i class="fas fa-hand-holding-heart cards-icon"></i>
+                        <div class="cards-title">Compassion</div>
+                        <div class="cards-description">
+                            <p>We approach every client with empathy and understanding, ensuring they feel supported
+                                throughout their healing journey.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <!-- Excellence Value Card -->
+                    <div class="cards">
+                        <i class="fas fa-trophy cards-icon"></i>
+                        <div class="cards-title">Excellence</div>
+                        <div class="cards-description">
+                            <p>Committed to the highest standards of care, we continually strive for excellence in all
+                                that
+                                we do.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Integrity Value Card -->
+                    <div class="cards">
+                        <i class="fas fa-handshake cards-icon"></i>
+                        <div class="cards-title">Integrity</div>
+                        <div class="cards-description">
+                            <p>We maintain the highest ethical standards, ensuring honesty, transparency, and respect in
+                                all
+                                interactions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="row" data-aos="zoom-out-up" data-aos-duration="1200">
+                <div class="col-md-4">
+                    <!-- Trust Value Card -->
+                    <div class="cards">
+                        <i class="fas fa-lock cards-icon"></i>
+                        <div class="cards-title">Trust</div>
+                        <div class="cards-description">
+                            <p>We build trust through reliable and confidential services, ensuring every client feels
+                                safe
+                                in our care.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Respect Value Card -->
+                    <div class="cards">
+                        <i class="fas fa-users cards-icon"></i>
+                        <div class="cards-title">Respect</div>
+                        <div class="cards-description">
+                            <p>We treat every individual with dignity and respect, honoring their unique needs and
+                                perspectives.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <!-- Innovation Value Card -->
+                    <div class="cards">
+                        <i class="fas fa-lightbulb cards-icon"></i>
+                        <div class="cards-title">Innovation</div>
+                        <div class="cards-description">
+                            <p>We embrace innovative approaches and technologies to enhance our services and treatments.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="py-5 mt-3">
+        <div class="container">
+            <h1 class="text-center mb-4" data-aos="fade-left">SOME MORE ABOUT OUR SERVICES</h1>
+            <div class="row text-center mt-5">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div data-aos="zoom-out-down" data-aos-duration="1200">
+                        <div class="card service-card">
+                            <div class="service-content">
+                                <i class="fas fa-clock service-icon"></i>
+                                <h5 class="card-title">24 Hour Services</h5>
+                                <p class="card-text">We provide round-the-clock services to ensure you get the support
+                                    you
+                                    need, whenever you need it.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div data-aos="zoom-out-up" data-aos-duration="1200">
+                        <div class="card service-card">
+                            <div class="service-content">
+                                <i class="fas fa-laptop-code service-icon"></i>
+                                <h5 class="card-title">Expert Consulting</h5>
+                                <p class="card-text">Our team of experts is here to offer you the best advice and
+                                    solutions
+                                    for your business needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div data-aos="zoom-out-down" data-aos-duration="1200">
+                        <div class="card service-card">
+                            <div class="service-content">
+                                <i class="fas fa-user-md service-icon"></i>
+                                <h5 class="card-title">Personalized Therapy Plans</h5>
+                                <p class="card-text">We create personalized therapy plans tailored to meet your
+                                    unique
+                                    needs
+                                    and goals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container workshop-section">
+        <div class="workshop-header mb-4" data-aos="fade-right">
+            <h1>Therapeutic Workshops and Seminars</h1>
+            <p class="mt-4" style="font-family: sans-serif;">Discover transformative experiences designed to foster personal growth and mental
+                well-being.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Personal Development Workshops -->
+            <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="card workshop-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Personal Development Workshops</h5>
+                        <p class="card-text">Join us to explore self-esteem, resilience, and the tools to overcome
+                            imposter syndrome.</p>
+                        <ul>
+                            <li>Engaging group activities</li>
+                            <li>Self-discovery exercises</li>
+                            <li>Facilitated discussions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Stress and Burnout Prevention Seminars -->
+            <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="card workshop-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Stress and Burnout Prevention Seminars</h5>
+                        <p class="card-text">Our seminars equip professionals and caregivers with strategies to prevent
+                            and manage burnout.</p>
+                        <ul>
+                            <li>Effective stress management techniques</li>
+                            <li>Practical daily life applications</li>
+                            <li>Personal growth</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container workshop-section">
+        <div class="workshop-header mb-4" data-aos="fade-left">
+            <h1 class="mt-2">Mindfulness and Meditation Programs</h1>
+            <p class="mt-4 mb-4" style="font-family: sans-serif;">Embrace mindfulness to reduce stress and enhance mental clarity through guided
+                practices.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Guided Mindfulness Sessions -->
+            <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="card workshop-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Guided Mindfulness Sessions</h5>
+                        <p class="card-text">Structured programs to improve focus, reduce stress, and promote emotional
+                            well-being.</p>
+                        <p class="card-text"><strong>Levels:</strong> From beginner to advanced, tailored to integrate
+                            with ongoing therapy.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Meditation Retreats -->
+            <div class="col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="card workshop-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Meditation Retreats</h5>
+                        <p class="card-text">Immerse yourself in a retreat focused on intensive meditation and
+                            mindfulness practices.</p>
+                        <p class="card-text"><strong>Experience:</strong> Enjoy guided sessions, nature walks, and
+                            relaxation techniques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!------------- Footer Start ------------->
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white mt-5" style="background: linear-gradient(135deg, #355b7de8, #355b7d);">
+        <div class="container-fluid p-4">
+            <!--Grid row-->
+            <div class="row my-4">
+
+                <!--Logo and Clinic Info-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0 text-center">
+                    <div class="rounded-circle bg-dark shadow-1-strong d-flex align-items-center justify-content-center mb-4 mx-auto animate_animated animate_fadeIn"
+                        style="width: 150px; height: 150px;">
+                        <img src="../assets/img/logo.png" height="70" alt="Zara Therapy Clinic Logo" loading="lazy" />
+                    </div>
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+                        Zara Therapy Clinic</h5>
+                    <p class="text-white-50" style="font-family: 'Open Sans', sans-serif;">Empowering you to heal and
+                        thrive in a supportive environment.</p>
+                    <ul class="list-unstyled d-flex flex-row justify-content-center">
+                        <li>
+                            <a class="text-white px-2" target="_blank" href="https://www.facebook.com/">
+                                <i class="fab fa-facebook-square fa-lg icons"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white px-2 " target="_blank" href="https://www.instagram.com/">
+                                <i class="fab fa-instagram fa-lg icons"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="text-white ps-2" target="_blank" href="https://www.youtube.com/">
+                                <i class="fab fa-youtube fa-lg icons"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Therapy Services-->
+                <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0 text-sm-center">
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">Our
+                        Services</h5>
+                    <ul class="list-unstyled text-sm-center">
+                        <li class="mb-2">
+                            <a href="./services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Services
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./medical-services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Medical Therapy
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./technical-services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Technical Therapy
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./beauty-services.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-spa pe-3" style="color: #ffab91;"></i>Beauty Therapy
+                            </a>
+                        </li>
+                    
+                    </ul>
+                </div>
+
+                <!--Resources-->
+                <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+                        Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="./reservation.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Reservation
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./reservation.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Client Testimonials
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./contact.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>FAQs
+                            </a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="./contact.html" class="text-white d-flex align-items-center"
+                                style="font-family: 'Open Sans', sans-serif;">
+                                <i class="fas fa-leaf pe-3" style="color: #a5d6a7;"></i>Contact Support
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--Contact Information-->
+                <div class="col-lg-3 col-md-6 mt-5 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4" style="font-family: 'Poppins', sans-serif; letter-spacing: 1px;">
+                        Contact Us</h5>
+                        <ul class="list-unstyled size">
+                            <li class="mb-2 text-light">
+                                <p style="font-family: 'Open Sans', sans-serif;">
+                                    <i class="fas fa-map-marker-alt pe-2"></i><a href="https://maps.google.com/?q=123+Therapy+St,+Wellness+City" class="text-light" target="_blank">123 Therapy St, Wellness City</a>
+                                </p>
+                            </li>
+                            <li class="mb-2 text-light">
+                                <p style="font-family: 'Open Sans', sans-serif;">
+                                    <i class="fas fa-phone pe-2"></i><a href="tel:+1234567890" class="text-light">+92 3067127890</a>
+                                </p>
+                            </li>
+                            <li class="mb-2 text-light">
+                                <p style="font-family: 'Open Sans', sans-serif;">
+                                    <i class="fas fa-envelope pe-2"></i><a href="mailto:contact@zara-therapy.com" class="text-light">contact@zara-therapy-clinic.com</a>
+                                </p>
+                            </li>
+                        </ul>
+                </div>
+
+            </div>
+            <!--Grid row-->
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2024 Zara Therapy Clinic. All Rights Reserved.
+        </div>
+    </footer>
+    <!-- End of Footer -->
+
+    <!------------- Footer End ------------->
+
+  <!------------- Scroll Bar Start ------------->
+  <a href="#" class="scroll-up" id="scrollUp">
+    <img src="../assets/img/icon-top.png" alt="Scroll to Top" />
+</a>
+  <!------------- Scroll Bar End ------------->
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <!-- aos animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Bootstrap CDN (JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <script src="../js/navbar.js"></script>
+    <script src="../js/login.js"></script>
+    <script src="../js/scrollicon.js"></script>
+
+
+
+
+</body>
+
+</html>

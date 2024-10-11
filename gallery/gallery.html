@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gallery.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        input {
+            display: none;
+        }
+
+        .container {
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: normal;
+            position: relative;
+            font-size: 35px;
+            margin: 40px 0px;
+        }
+
+        h1::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: rgb(6, 73, 73);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: animate 4s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                width: 100px;
+            }
+
+            50% {
+                width: 200px;
+            }
+
+            100% {
+                width: 100px;
+            }
+        }
+
+        .top-content {
+            background-color: lightgray;
+            width: 90%;
+            margin: 0 auto 20px auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 3px 3px 5px lightgray;
+        }
+
+        h3 {
+            height: 100%;
+            line-height: 60px;
+            background-color: rgb(217, 241, 241);
+            color: cadetblue;
+            padding: 0 50px;
+        }
+        label {
+            display: inline-block;
+            height: 100%;
+            line-height: 60px;
+            margin: 0 20px;
+            font-size: 18px;
+            color: cadetblue;
+            cursor: pointer;
+            transition: .5s;
+
+        }
+
+        label:hover {
+            color: rgb(7, 54, 56);
+        }
+
+        .photo-gallery {
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+        }
+
+        .pic {
+            position: relative;
+            height: 240px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px lightgray;
+            cursor: pointer;
+        }
+
+        .pic img {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            transition: .5s;
+        }
+
+        .pic::before {
+            content: "PHOTO GALLERY";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(5, 97, 82);
+            font-size: 20px;
+            width: 100%;
+            margin-top: -100px;
+            opacity: 0;
+            transition: .3s;
+            transition-delay: .2s;
+            font-weight: bold;
+        }
+
+        .pic::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+            height: 0;
+            background-color: rgba(0, 0, 0, .4);
+            transition: .3s;
+        }
+
+        .pic:hover::after {
+            height: 100%;
+        }
+
+        .pic:hover::before {
+            margin-top: 0;
+            opacity: 1;
+        }
+
+        #check1:checked~.container .photo-gallery .pic {
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+            transition: .5s;
+        }
+
+        #check2:checked~.container .photo-gallery .Environment {
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+
+        #check2:checked~.container .photo-gallery .Sessions,
+        #check2:checked~.container .photo-gallery .Team {
+            opacity: 0;
+            transform: scale(0);
+            position: absolute;
+            transition: 0s;
+        }
+
+        #check3:checked~.container .photo-gallery .Sessions {
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+
+        #check3:checked~.container .photo-gallery .Environment,
+        #check3:checked~.container .photo-gallery .Team {
+            opacity: 0;
+            transform: scale(0);
+            position: absolute;
+            transition: 0s;
+        }
+
+        #check4:checked~.container .photo-gallery .Team {
+            transform: scale(1);
+            opacity: 1;
+            position: relative;
+        }
+
+        #check4:checked~.container .photo-gallery .Sessions,
+        #check4:checked~.container .photo-gallery .Environment {
+            opacity: 0;
+            transform: scale(0);
+            position: absolute;
+            transition: 0s;
+        }
+
+        /* Responsive Media Queries */
+
+        @media (max-width: 1200px) {
+            .photo-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .top-content h3 {
+                font-size: 20px;
+                padding: 0 20px;
+            }
+
+            .top-content label {
+                margin: 0 10px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .pic {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 28px;
+                margin: 30px 0;
+            }
+
+            h1::before {
+                width: 80px;
+            }
+
+            .top-content {
+                flex-direction: column;
+                height: auto;
+                padding: 20px 0;
+            }
+
+            .top-content h3 {
+                font-size: 18px;
+                padding: 0 10px;
+                margin-bottom: 10px;
+            }
+
+            .top-content label {
+                margin: 5px 0;
+                font-size: 14px;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .pic {
+                height: 180px;
+            }
+        }
+    </style>
+    <title>Photo Gallery</title>
+</head>
+
+<body>
+    <input type="radio" name="photos" id="check1" checked>
+    <input type="radio" name="photos" id="check2">
+    <input type="radio" name="photos" id="check3">
+    <input type="radio" name="photos" id="check4">
+    <div class="container">
+        <h1>OUR PHOTO GALLERY</h1>
+        <div class="top-content">
+            <h3>Photo Gallery</h3>
+            <label for="check1">All Photos</label>
+            <label for="check2">Environment</label>
+            <label for="check3">Sessions</label>
+            <label for="check4">Team</label>
+        </div>
+        <div class="photo-gallery">
+            <div class="pic Environment">
+                <img src="./images/gallery-1.webp" alt="Environment 1">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-2.jpg" alt="Environment 2">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-8.webp" alt="Environment 3">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-9.webp" alt="Environment 4">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-30.webp" alt="Sessions 1">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-12.webp" alt="Sessions 2">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-13.jpg" alt="Sessions 3">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-10.webp" alt="Environment 5">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-22.webp" alt="Environment 6">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-21.webp" alt="Environment 7">
+            </div>
+            <div class="pic Environment">
+                <img src="./images/gallery-24.jpg" alt="Environment 8">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-14.webp" alt="Sessions 4">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-15.jpg" alt="Sessions 5">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-16.jpeg" alt="Sessions 6">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-17.webp" alt="Sessions 7">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-18.jpeg" alt="Sessions 8">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-20.jpeg" alt="Sessions 9">
+            </div>
+            <div class="pic Team">
+                <img src="./images/gallery-25.jpg" alt="Team 1">
+            </div>
+            <div class="pic Team">
+                <img src="./images/gallery-26.webp" alt="Team 2">
+            </div>
+            <div class="pic Team">
+                <img src="./images/gallery-27.webp" alt="Team 3">
+            </div>
+            <div class="pic Team">
+                <img src="./images/gallery-28.jpg" alt="Team 4">
+            </div>
+            <div class="pic Team">
+                <img src="./images/gallery-29.webp" alt="Team 5">
+            </div>
+            <div class="pic Team">
+                <img src="./images/gallery-11.webp" alt="Team 6">
+            </div>
+            <div class="pic Sessions">
+                <img src="./images/gallery-19.jpg" alt="Sessions 10">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
