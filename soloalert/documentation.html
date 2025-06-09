@@ -107,8 +107,8 @@
                                     <h4>📦 CDN (Recommended)</h4>
                                     <div class="code-block">
                                         <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-                                        <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yourusername/soloalert/dist/soloalert.min.css"&gt;
-        &lt;script src="https://cdn.jsdelivr.net/gh/yourusername/soloalert/dist/soloalert.min.js"&gt;&lt;/script&gt;</code></pre>
+                                        <pre><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aniqueali29/soloalert/dist/soloalert.min.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/aniqueali29/soloalert/dist/soloalert.min.js"&gt;&lt;/script&gt;</code></pre>
                                     </div>
                                 </div>
 
@@ -116,8 +116,9 @@
                                     <h4>📁 Local Files</h4>
                                     <div class="code-block">
                                         <button class="copy-btn" onclick="copyCode(this)">📋 Copy</button>
-                                        <pre><code>&lt;link rel="stylesheet" href="path/to/soloalert.css"&gt;
-     &lt;script src="path/to/soloalert.js"&gt;&lt;/script&gt;</code></pre>
+                                        <pre><code>&lt;link rel="stylesheet" href="dist/soloalert.min.css"&gt;
+
+&lt;script src="dist/soloalert.min.js"&gt;&lt;/script&gt;</code></pre>
                                     </div>
                                 </div>
 
@@ -436,7 +437,7 @@ SoloAlert.fire({
                             <pre><code>function showStats() {
     SoloAlert.fire({
       title: 'PLAYER STATS',
-      message: \`
+      message: `
         &lt;div style="text-align: center"&gt;
           &lt;h3 style="color: #00ff88"&gt;⚔️ BATTLE STATS ⚔️&lt;/h3&gt;
           &lt;div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px;"&gt;
@@ -444,7 +445,7 @@ SoloAlert.fire({
             &lt;div&gt;&lt;strong&gt;DEF:&lt;/strong&gt; 8,888&lt;/div&gt;
           &lt;/div&gt;
         &lt;/div&gt;
-      \`,
+      `,
       icon: 'gear'
     });
   }</code></pre>
